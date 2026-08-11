@@ -28,6 +28,8 @@
   [data-navlink]:hover::after{transform:scaleX(1)}
   [data-diff-card]:hover [data-diff-bar]{width:100%!important}
   [data-diff-card]:hover [data-diff-num]{color:#2f4a8c!important}
+  @keyframes diff-glow{0%,100%{box-shadow:0 8px 18px rgba(34,55,99,.22)}50%{box-shadow:0 12px 30px rgba(58,95,174,.45)}}
+  [data-diff-icon]{animation:diff-glow 3.2s ease-in-out infinite}
   @keyframes sp-fadeup{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
   @keyframes sp-sword{from{transform:scaleY(0)}to{transform:scaleY(1)}}
   @keyframes sp-draw{to{stroke-dashoffset:0}}
@@ -192,7 +194,6 @@
         <span style="width:34px;height:1px;background:#223763"></span>
         <span style="font-size:11px;letter-spacing:.3em;color:#223763;font-weight:700">{{ t.values.eyebrow }}</span>
       </div>
-      <p style="font-size:14px;color:#8a9099;max-width:34ch;text-align:right">{{ t.values.caption }}</p>
     </div>
     <div style="border-top:1px solid #e7eaee">
       <sc-for list="{{ values }}" as="v" hint-placeholder-count="6">
@@ -217,7 +218,6 @@
           <span style="width:34px;height:1px;background:#223763"></span>
           <span style="font-size:11px;letter-spacing:.3em;color:#223763;font-weight:700">{{ t.services.eyebrow }}</span>
         </div>
-        <p style="font-size:14.5px;line-height:1.6;color:#3a4250;max-width:52ch">{{ t.services.sub }}</p>
       </div>
       <div style="display:grid;grid-template-columns:auto 1fr;gap:clamp(30px,7vw,110px);align-items:center" data-grid2>
         <div style="display:flex;flex-direction:column;gap:6px" data-svc-index>
@@ -352,15 +352,18 @@
       <span style="font-size:11px;letter-spacing:.3em;color:#223763;font-weight:700">{{ t.diff.eyebrow }}</span>
       <span style="font-weight:800;font-size:clamp(22px,3vw,40px);letter-spacing:-.02em;color:#0b1220;margin-left:8px">{{ t.diff.title }}</span>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px" data-diff-grid>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px" data-diff-grid>
       <sc-for list="{{ diffs }}" as="d" hint-placeholder-count="6">
-        <div data-reveal data-diff-card style="position:relative;background:#fff;border:1px solid #e7eaee;border-radius:16px;padding:clamp(26px,3vw,40px);overflow:hidden;transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s,border-color .4s" style-hover="transform:translateY(-6px);box-shadow:0 22px 44px rgba(11,18,32,.1);border-color:rgba(34,55,99,.35)">
-          <span data-diff-bar style="position:absolute;left:0;top:0;height:3px;width:0;background:#2f4a8c;transition:width .45s cubic-bezier(.16,1,.3,1)"></span>
-          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
-            <span data-diff-num style="font-weight:800;font-size:clamp(30px,3.4vw,46px);line-height:1;letter-spacing:-.02em;color:#223763;transition:color .4s">{{ d.n }}</span>
-            <span style="width:26px;height:1px;background:#c3ccd8"></span>
+        <div data-reveal data-diff-card style="position:relative;background:#fff;border:1px solid #e7eaee;border-radius:18px;padding:clamp(26px,3vw,38px);overflow:hidden;transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s,border-color .45s" style-hover="transform:translateY(-8px);box-shadow:0 26px 50px rgba(11,18,32,.12);border-color:rgba(47,74,140,.4)">
+          <span data-diff-bar style="position:absolute;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,#223763,#5c7fca);transition:width .5s cubic-bezier(.16,1,.3,1)"></span>
+          <span data-diff-icon style="position:relative;z-index:1;width:56px;height:56px;border-radius:15px;background:linear-gradient(135deg,#223763,#3a5fae);display:inline-flex;align-items:center;justify-content:center;color:#fff;animation-delay:{{ d.delay }};transition:transform .45s cubic-bezier(.16,1,.3,1)" style-hover="transform:scale(1.08) rotate(-4deg)">
+            <svg viewBox="0 0 24 24" width="27" height="27" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="{{ d.icon }}"/></svg>
+          </span>
+          <div style="position:relative;z-index:1;margin-top:22px;display:flex;align-items:center;gap:12px">
+            <span data-diff-num style="font-weight:800;font-size:15px;letter-spacing:.1em;color:#2f4a8c;transition:color .4s">{{ d.n }}</span>
+            <span style="flex:1;height:1px;background:#e7eaee"></span>
           </div>
-          <h3 style="margin-top:clamp(28px,4vw,54px);font-weight:700;font-size:clamp(18px,1.7vw,24px);line-height:1.15;letter-spacing:-.01em;color:#0b1220">{{ d.title }}</h3>
+          <h3 style="position:relative;z-index:1;margin-top:14px;font-weight:700;font-size:clamp(18px,1.6vw,23px);line-height:1.2;letter-spacing:-.01em;color:#0b1220">{{ d.title }}</h3>
         </div>
       </sc-for>
     </div>
@@ -843,7 +846,15 @@ class Component extends DCLogic {
       };
     });
 
-    const diffs=t.diff.items.map((d,i)=>({ n:'0'+(i+1), title:d }));
+    const diffIcons=[
+      'M12 3a9 9 0 100 18 9 9 0 000-18z M12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9z M12 11a1 1 0 100 2 1 1 0 000-2z',
+      'M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z M9 12l2 2 4-4',
+      'M12 3a5 5 0 100 10 5 5 0 000-10z M8.5 12.5L7 21l5-3 5 3-1.5-8.5',
+      'M12 3a9 9 0 100 18 9 9 0 000-18z M3 12h18 M12 3c2.5 2.6 2.5 15.4 0 18 M12 3c-2.5 2.6-2.5 15.4 0 18',
+      'M6 11h12v9H6z M8.5 11V8a3.5 3.5 0 017 0v3',
+      'M4 8h9 M18 8h2 M4 16h5 M13 16h7 M13 6a2 2 0 100 4 2 2 0 000-4 M9 14a2 2 0 100 4 2 2 0 000-4'
+    ];
+    const diffs=t.diff.items.map((d,i)=>({ n:'0'+(i+1), title:d, icon:diffIcons[i%6], delay:(i*0.35).toFixed(2)+'s' }));
 
     // methodology orbital nodes
     const R=35, cx=50, cy=50;
