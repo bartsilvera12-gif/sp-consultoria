@@ -19,7 +19,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   html,body{overflow-x:clip}
-  body{font-family:'Manrope',system-ui,sans-serif;background:#f6f7f9;color:#0b1220;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{font-family:'Manrope',system-ui,sans-serif;background:#eaf0fa;color:#0b1220;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   ::selection{background:#223763;color:#fff}
   a{color:#223763;text-decoration:none}
   a:hover{color:#2f4a8c}
@@ -59,29 +59,17 @@
     [data-method-label]{font-size:11px!important}
   }
   @media (max-width:480px){
-    [data-method-diagram]{max-width:230px!important}
+    [data-method-diagram]{max-width:210px!important}
+    [data-method-label]{font-size:10px!important}
     [data-brand-sub]{display:none!important}
   }
   @media (max-width:360px){
-    [data-method-diagram]{max-width:190px!important}
-    [data-method-label]{font-size:10px!important}
+    [data-method-diagram]{max-width:175px!important}
+    [data-method-label]{font-size:9px!important}
   }
 </style>
 </helmet>
 
-<sc-if value="{{ showIntro }}" hint-placeholder-val="{{ true }}">
-<div style="position:fixed;inset:0;z-index:9999;background:#0b1220;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity .7s cubic-bezier(.16,1,.3,1),visibility .7s;opacity:{{ introOpacity }};visibility:{{ introVis }};pointer-events:none">
-  <svg width="120" height="150" viewBox="0 0 120 150" fill="none" style="overflow:visible">
-    <line x1="60" y1="6" x2="60" y2="132" stroke="#8a9099" stroke-width="1" style="transform-origin:60px 6px;animation:sp-sword 1s cubic-bezier(.16,1,.3,1) .15s both"/>
-    <line x1="46" y1="34" x2="74" y2="34" stroke="#8a9099" stroke-width="1" style="opacity:0;animation:sp-fadeup .5s ease .8s both"/>
-    <path d="M60 44 L92 54 L92 84 C92 108 78 122 60 130 C42 122 28 108 28 84 L28 54 Z" stroke="#2f4a8c" stroke-width="1.4" style="stroke-dasharray:340;stroke-dashoffset:340;animation:sp-draw 1.1s cubic-bezier(.16,1,.3,1) .7s forwards"/>
-    <path d="M28 62 C14 58 6 60 -6 66" stroke="#8a9099" stroke-width="1" style="stroke-dasharray:60;stroke-dashoffset:60;animation:sp-draw .9s ease 1s forwards"/>
-    <path d="M92 62 C106 58 114 60 126 66" stroke="#8a9099" stroke-width="1" style="stroke-dasharray:60;stroke-dashoffset:60;animation:sp-draw .9s ease 1s forwards"/>
-  </svg>
-  <div style="margin-top:26px;font-weight:800;font-size:34px;letter-spacing:.12em;color:#fff;opacity:0;animation:sp-wordin .8s cubic-bezier(.16,1,.3,1) 1.3s both">SP</div>
-  <div style="margin-top:10px;font-size:10px;letter-spacing:.42em;color:#8a9099;opacity:0;animation:sp-fadeup .6s ease 1.7s both">CONSULTORÍA · ESTRATEGIA · SEGURIDAD</div>
-</div>
-</sc-if>
 
 <div style="position:fixed;top:0;left:0;height:2px;background:#2f4a8c;z-index:9998;width:{{ scrollPct }}%;transition:width .1s linear"></div>
 
@@ -166,14 +154,14 @@
 </section>
 
 <!-- ============ MANIFIESTO / QUIÉNES SOMOS ============ -->
-<section id="nosotros" style="background:#f6f7f9;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
+<section id="nosotros" style="background:#eaf0fa;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
   <div style="max-width:1360px;margin:0 auto;position:relative">
     <div style="position:absolute;right:0;top:-40px;font-weight:800;font-size:clamp(120px,18vw,300px);line-height:.8;color:#e7eaee;letter-spacing:-.04em;pointer-events:none;z-index:0">01</div>
     <div style="position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(40px,6vw,110px);align-items:start" data-grid2>
       <div data-reveal>
         <div style="display:flex;align-items:center;gap:14px;margin-bottom:26px">
-          <span style="width:34px;height:1px;background:#223763"></span>
-          <span style="font-size:11px;letter-spacing:.3em;color:#223763;font-weight:700">{{ t.about.eyebrow }}</span>
+          <span style="width:34px;height:2px;background:linear-gradient(90deg,#2f4a8c,#6f9bff)"></span>
+          <span style="font-size:11px;letter-spacing:.3em;color:#2f4a8c;font-weight:700">{{ t.about.eyebrow }}</span>
         </div>
         <h2 style="font-weight:800;font-size:clamp(30px,4.4vw,64px);line-height:1.02;letter-spacing:-.02em;color:#0b1220">{{ t.about.h1 }}<br><span style="color:#8a9099">{{ t.about.h2 }}</span></h2>
       </div>
@@ -187,21 +175,21 @@
 </section>
 
 <!-- ============ VALORES ============ -->
-<section style="background:#fff;padding:clamp(70px,9vh,120px) clamp(20px,4vw,56px);border-top:1px solid #e7eaee">
+<section style="background:linear-gradient(180deg,#ffffff,#eef3fc);padding:clamp(70px,9vh,120px) clamp(20px,4vw,56px);border-top:1px solid #e7eaee">
   <div style="max-width:1360px;margin:0 auto">
     <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:clamp(30px,5vh,60px);flex-wrap:wrap" data-reveal>
       <div style="display:flex;align-items:center;gap:14px">
-        <span style="width:34px;height:1px;background:#223763"></span>
-        <span style="font-size:11px;letter-spacing:.3em;color:#223763;font-weight:700">{{ t.values.eyebrow }}</span>
+        <span style="width:34px;height:2px;background:linear-gradient(90deg,#2f4a8c,#6f9bff)"></span>
+        <span style="font-size:11px;letter-spacing:.3em;color:#2f4a8c;font-weight:700">{{ t.values.eyebrow }}</span>
       </div>
     </div>
     <div style="border-top:1px solid #e7eaee">
       <sc-for list="{{ values }}" as="v" hint-placeholder-count="6">
-        <div onMouseEnter="{{ v.enter }}" onMouseLeave="{{ v.leave }}" style="display:grid;grid-template-columns:80px 1fr;gap:20px;align-items:center;border-bottom:1px solid #e7eaee;padding:clamp(18px,2.6vh,30px) 0;cursor:default;transition:background .4s,padding-left .4s cubic-bezier(.16,1,.3,1);background:{{ v.rowBg }};padding-left:{{ v.rowPad }}" data-valrow>
-          <span style="font-weight:700;font-size:14px;color:{{ v.numColor }};transition:color .4s">{{ v.n }}</span>
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap">
-            <span style="font-weight:700;font-size:clamp(22px,3.4vw,44px);letter-spacing:-.02em;line-height:1;color:{{ v.titleColor }};transition:color .4s">{{ v.title }}</span>
-            <span style="font-size:14px;line-height:1.6;color:#6b7280;max-width:42ch;transition:all .5s cubic-bezier(.16,1,.3,1);opacity:{{ v.descOpacity }};transform:{{ v.descTransform }}">{{ v.desc }}</span>
+        <div data-reveal style="display:grid;grid-template-columns:64px 1fr;gap:24px;align-items:baseline;border-bottom:1px solid #e3e9f2;padding:clamp(20px,3vh,34px) 0">
+          <span style="font-weight:800;font-size:15px;color:#3a5fae">{{ v.n }}</span>
+          <div style="display:grid;grid-template-columns:minmax(200px,1fr) 1.25fr;gap:16px 40px;align-items:baseline" data-grid2>
+            <span style="font-weight:700;font-size:clamp(22px,3vw,38px);letter-spacing:-.02em;line-height:1.05;color:#16233f">{{ v.title }}</span>
+            <span style="font-size:15px;line-height:1.7;color:#52607a;max-width:52ch">{{ v.desc }}</span>
           </div>
         </div>
       </sc-for>
@@ -210,11 +198,11 @@
 </section>
 
 <!-- ============ SERVICIOS / CAPACIDADES ============ -->
-<section id="servicios" style="background:#f6f7f9;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
+<section id="servicios" style="background:#eaf0fa;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
   <div style="max-width:1360px;margin:0 auto">
     <div style="display:flex;align-items:center;gap:14px;margin-bottom:clamp(30px,5vh,56px)" data-reveal>
-      <span style="width:34px;height:1px;background:#223763"></span>
-      <span style="font-size:11px;letter-spacing:.3em;color:#223763;font-weight:700">{{ t.services.eyebrow }}</span>
+      <span style="width:34px;height:2px;background:linear-gradient(90deg,#2f4a8c,#6f9bff)"></span>
+      <span style="font-size:11px;letter-spacing:.3em;color:#2f4a8c;font-weight:700">{{ t.services.eyebrow }}</span>
     </div>
     <div style="border-top:1px solid #dfe3e8">
       <sc-for list="{{ services }}" as="s" hint-placeholder-count="5">
@@ -259,12 +247,12 @@
 </section>
 
 <!-- ============ METODOLOGÍA ============ -->
-<section id="metodologia" style="background:#fff;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
+<section id="metodologia" style="background:linear-gradient(180deg,#ffffff,#eef3fc);padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
   <div style="max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,90px);align-items:center" data-grid2>
     <div data-reveal>
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:26px">
-        <span style="width:34px;height:1px;background:#223763"></span>
-        <span style="font-size:11px;letter-spacing:.3em;color:#223763;font-weight:700">{{ t.method.eyebrow }}</span>
+        <span style="width:34px;height:2px;background:linear-gradient(90deg,#2f4a8c,#6f9bff)"></span>
+        <span style="font-size:11px;letter-spacing:.3em;color:#2f4a8c;font-weight:700">{{ t.method.eyebrow }}</span>
       </div>
       <h2 style="font-weight:800;font-size:clamp(30px,4.4vw,60px);line-height:1.02;letter-spacing:-.02em;color:#0b1220">{{ t.method.title }}</h2>
       <p style="margin-top:28px;max-width:48ch;font-size:clamp(15px,1.2vw,17px);line-height:1.75;color:#3a4250">{{ t.method.text }}</p>
@@ -297,12 +285,12 @@
 </section>
 
 <!-- ============ PROCESO ============ -->
-<section id="proceso" style="background:#f6f7f9;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px);border-top:1px solid #e7eaee">
+<section id="proceso" style="background:#eaf0fa;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px);border-top:1px solid #e7eaee">
   <div style="max-width:1360px;margin:0 auto;display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,90px)" data-grid2>
     <div>
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px" data-reveal>
-        <span style="width:34px;height:1px;background:#223763"></span>
-        <span style="font-size:11px;letter-spacing:.3em;color:#223763;font-weight:700">{{ t.process.eyebrow }}</span>
+        <span style="width:34px;height:2px;background:linear-gradient(90deg,#2f4a8c,#6f9bff)"></span>
+        <span style="font-size:11px;letter-spacing:.3em;color:#2f4a8c;font-weight:700">{{ t.process.eyebrow }}</span>
       </div>
       <h2 data-reveal style="font-weight:800;font-size:clamp(28px,4vw,56px);line-height:1.02;letter-spacing:-.02em;color:#0b1220">{{ t.process.title }}</h2>
     </div>
@@ -323,11 +311,11 @@
 </section>
 
 <!-- ============ DIFERENCIALES ============ -->
-<section style="background:#fff;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px);border-top:1px solid #e7eaee">
+<section style="background:linear-gradient(180deg,#ffffff,#eef3fc);padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px);border-top:1px solid #e7eaee">
   <div style="max-width:1360px;margin:0 auto">
     <div style="display:flex;align-items:center;gap:14px;margin-bottom:clamp(36px,5vh,64px)" data-reveal>
-      <span style="width:34px;height:1px;background:#223763"></span>
-      <span style="font-size:11px;letter-spacing:.3em;color:#223763;font-weight:700">{{ t.diff.eyebrow }}</span>
+      <span style="width:34px;height:2px;background:linear-gradient(90deg,#2f4a8c,#6f9bff)"></span>
+      <span style="font-size:11px;letter-spacing:.3em;color:#2f4a8c;font-weight:700">{{ t.diff.eyebrow }}</span>
       <span style="font-weight:800;font-size:clamp(22px,3vw,40px);letter-spacing:-.02em;color:#0b1220;margin-left:8px">{{ t.diff.title }}</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px" data-diff-grid>
@@ -349,13 +337,13 @@
 </section>
 
 <!-- ============ MISIÓN / VISIÓN ============ -->
-<section style="background:#f6f7f9;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px);border-top:1px solid #e7eaee">
+<section style="background:#eaf0fa;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px);border-top:1px solid #e7eaee">
   <div style="max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,32px);align-items:stretch" data-grid2>
     <div data-reveal style="background:#fff;border:1px solid #e7eaee;border-radius:22px;padding:clamp(30px,4vw,54px)">
       <div style="display:flex;align-items:center;gap:16px;margin-bottom:26px">
         <span style="font-weight:800;font-size:14px;color:#223763;letter-spacing:.1em">01</span>
-        <span style="width:30px;height:1px;background:#223763"></span>
-        <span style="font-size:11px;letter-spacing:.3em;color:#223763;font-weight:700">{{ t.mv.mKicker }}</span>
+        <span style="width:30px;height:2px;background:linear-gradient(90deg,#2f4a8c,#6f9bff)"></span>
+        <span style="font-size:11px;letter-spacing:.3em;color:#2f4a8c;font-weight:700">{{ t.mv.mKicker }}</span>
       </div>
       <p style="font-weight:600;font-size:clamp(15px,1.25vw,18px);line-height:1.65;letter-spacing:-.005em;color:#0b1220;text-wrap:pretty">{{ t.mv.mText }}</p>
     </div>
@@ -394,7 +382,7 @@
       <span style="font-size:13px;color:#6b7280">{{ t.finalCta.note }}</span>
     </div>
     <div data-reveal style="margin-top:42px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
-      <a href="tel:+595984868243" style="display:flex;align-items:center;gap:15px;padding:22px 20px;border-radius:16px;background:#f6f7f9;border:1px solid #e7eaee;color:#0b1220;transition:all .3s cubic-bezier(.16,1,.3,1)" style-hover="background:#fff;border-color:rgba(34,55,99,.28);transform:translateY(-4px);box-shadow:0 14px 34px rgba(11,18,32,.09)">
+      <a href="tel:+595984868243" style="display:flex;align-items:center;gap:15px;padding:22px 20px;border-radius:16px;background:#eaf0fa;border:1px solid #e7eaee;color:#0b1220;transition:all .3s cubic-bezier(.16,1,.3,1)" style-hover="background:#fff;border-color:rgba(34,55,99,.28);transform:translateY(-4px);box-shadow:0 14px 34px rgba(11,18,32,.09)">
         <span style="width:46px;height:46px;flex:none;border-radius:12px;background:rgba(47,74,140,.1);display:inline-flex;align-items:center;justify-content:center;color:#2f4a8c">
           <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.13.96.35 1.9.66 2.8a2 2 0 01-.45 2.11L8.1 9.9a16 16 0 006 6l1.29-1.21a2 2 0 012.11-.45c.9.31 1.84.53 2.8.66a2 2 0 011.7 2z"/></svg>
         </span>
@@ -403,7 +391,7 @@
           <span style="display:block;font-size:15px;font-weight:700">+595 984 868 243</span>
         </span>
       </a>
-      <a href="mailto:spconsultoria@gmail.com" style="display:flex;align-items:center;gap:15px;padding:22px 20px;border-radius:16px;background:#f6f7f9;border:1px solid #e7eaee;color:#0b1220;transition:all .3s cubic-bezier(.16,1,.3,1)" style-hover="background:#fff;border-color:rgba(34,55,99,.28);transform:translateY(-4px);box-shadow:0 14px 34px rgba(11,18,32,.09)">
+      <a href="mailto:spconsultoria@gmail.com" style="display:flex;align-items:center;gap:15px;padding:22px 20px;border-radius:16px;background:#eaf0fa;border:1px solid #e7eaee;color:#0b1220;transition:all .3s cubic-bezier(.16,1,.3,1)" style-hover="background:#fff;border-color:rgba(34,55,99,.28);transform:translateY(-4px);box-shadow:0 14px 34px rgba(11,18,32,.09)">
         <span style="width:46px;height:46px;flex:none;border-radius:12px;background:rgba(47,74,140,.1);display:inline-flex;align-items:center;justify-content:center;color:#2f4a8c">
           <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
         </span>
@@ -412,7 +400,7 @@
           <span style="display:block;font-size:14px;font-weight:700;word-break:break-word">spconsultoria@gmail.com</span>
         </span>
       </a>
-      <a href="https://maps.google.com/?q=Manuel+Gondra+1118+Lambar%C3%A9+Paraguay" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:15px;padding:22px 20px;border-radius:16px;background:#f6f7f9;border:1px solid #e7eaee;color:#0b1220;transition:all .3s cubic-bezier(.16,1,.3,1)" style-hover="background:#fff;border-color:rgba(34,55,99,.28);transform:translateY(-4px);box-shadow:0 14px 34px rgba(11,18,32,.09)">
+      <a href="https://maps.google.com/?q=Manuel+Gondra+1118+Lambar%C3%A9+Paraguay" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:15px;padding:22px 20px;border-radius:16px;background:#eaf0fa;border:1px solid #e7eaee;color:#0b1220;transition:all .3s cubic-bezier(.16,1,.3,1)" style-hover="background:#fff;border-color:rgba(34,55,99,.28);transform:translateY(-4px);box-shadow:0 14px 34px rgba(11,18,32,.09)">
         <span style="width:46px;height:46px;flex:none;border-radius:12px;background:rgba(47,74,140,.1);display:inline-flex;align-items:center;justify-content:center;color:#2f4a8c">
           <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
         </span>
@@ -543,7 +531,7 @@ const DICT = {
         { code:"ISO 22301", name:"Continuidad del Negocio" },
         { code:"ISO 45001", name:"Seguridad y Salud en el Trabajo" },
         { code:"ISO 27001", name:"Seguridad de la Información" },
-        { code:"ASIS INTL", name:"Buenas prácticas internacionales" }
+        { code:"ASIS Internacional", name:"Buenas prácticas internacionales" }
       ]
     },
     process: {
@@ -625,7 +613,7 @@ const DICT = {
         { code:"ISO 22301", name:"Business Continuity" },
         { code:"ISO 45001", name:"Occupational Health & Safety" },
         { code:"ISO 27001", name:"Information Security" },
-        { code:"ASIS INTL", name:"International best practices" }
+        { code:"ASIS Internacional", name:"International best practices" }
       ]
     },
     process: {
@@ -688,12 +676,10 @@ class Component extends DCLogic {
     if(this.reduced){
       this.setState({heroStage:9});
     }else{
-      // hero staged reveal after intro
-      [ [700,1],[1300,2],[1500,3],[1700,4],[1900,5],[2100,6],[2300,7] ].forEach(([t,s])=>{
+      // hero staged reveal (quick entrance on load, no intro splash)
+      [ [80,1],[200,2],[340,3],[480,4],[620,5],[760,6],[900,7] ].forEach(([t,s])=>{
         setTimeout(()=>this.setState(st=>({heroStage:Math.max(st.heroStage,s)})),t);
       });
-      setTimeout(()=>this.setState({introGone:true}),2200);
-      setTimeout(()=>this.setState({showIntro:false}),3000);
     }
     this.onScroll();
   }
@@ -779,22 +765,9 @@ class Component extends DCLogic {
       const c=a.map((v,i)=>Math.round(v+(b[i]-v)*f));
       return 'rgb('+c[0]+','+c[1]+','+c[2]+')';
     };
-    const mvBg=mixHex('#f6f7f9','#0b1220',smoothstep(toVision));
+    const mvBg=mixHex('#eaf0fa','#0b1220',smoothstep(toVision));
 
-    const values=t.values.items.map((v,i)=>{
-      const on=s.hoverVal===i;
-      return {
-        n:'0'+(i+1), title:v.title, desc:v.desc,
-        enter:()=>this.setState({hoverVal:i}),
-        leave:()=>this.setState({hoverVal:-1}),
-        rowBg:on?'#f6f7f9':'transparent',
-        rowPad:on?'20px':'0px',
-        numColor:on?'#223763':'#c3ccd8',
-        titleColor:on?'#223763':'#0b1220',
-        descOpacity:on?'1':'0',
-        descTransform:on?'translateX(0)':'translateX(12px)'
-      };
-    });
+    const values=t.values.items.map((v,i)=>({ n:'0'+(i+1), title:v.title, desc:v.desc }));
 
     const services=t.services.items.map((sv,i)=>({ n:'0'+(i+1), title:sv.title, items:sv.items }));
 
