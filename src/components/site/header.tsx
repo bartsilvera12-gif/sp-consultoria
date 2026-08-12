@@ -41,7 +41,7 @@ export function Header() {
             alt="SP Consultoría, Estrategia y Seguridad"
             width={78}
             height={42}
-            className={cn("h-10 w-auto transition", !solid && "brightness-0 invert")}
+            className="h-10 w-auto"
             priority
           />
           <span className="flex items-center gap-3">
