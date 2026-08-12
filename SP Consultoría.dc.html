@@ -19,7 +19,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   html,body{overflow-x:clip}
-  body{font-family:'Manrope',system-ui,sans-serif;background:#0a1222;color:#eef3ff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{font-family:'Manrope',system-ui,sans-serif;background:#0e3487;color:#eef3ff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   ::selection{background:#5c7fca;color:#fff}
   a{color:#8ea6e0;text-decoration:none}
   a:hover{color:#8ea6e0}
@@ -75,7 +75,7 @@
 </helmet>
 
 
-<div style="position:fixed;top:0;left:0;height:2px;background:#2f4a8c;z-index:9998;width:{{ scrollPct }}%;transition:width .1s linear"></div>
+<div style="position:fixed;top:0;left:0;height:2px;background:#7fa8ff;z-index:9998;width:{{ scrollPct }}%;transition:width .1s linear"></div>
 
 <header style="position:fixed;top:0;left:0;right:0;z-index:9000;transition:all .5s cubic-bezier(.16,1,.3,1);padding:{{ headerPad }};background:{{ headerBg }};backdrop-filter:{{ headerBlur }};-webkit-backdrop-filter:{{ headerBlur }};border-bottom:{{ headerBorder }}">
   <div style="max-width:1360px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 clamp(20px,4vw,56px)">
@@ -98,7 +98,7 @@
         <span style="color:{{ headerRule }}">|</span>
         <button onClick="{{ setEn }}" style="background:none;border:none;cursor:pointer;font:inherit;padding:2px 2px;color:{{ enColor }};transition:color .3s">EN</button>
       </div>
-      <a href="#contacto" data-magnetic data-header-cta style="display:inline-flex;align-items:center;gap:10px;font-size:11.5px;font-weight:700;letter-spacing:.14em;color:{{ ctaText }};background:{{ ctaBg }};border:1px solid {{ ctaBorder }};padding:13px 22px;transition:all .4s cubic-bezier(.16,1,.3,1)" style-hover="background:#2f4a8c;border-color:#8ea6e0;color:#fff">{{ t.cta.consultoria }}</a>
+      <a href="#contacto" data-magnetic data-header-cta style="display:inline-flex;align-items:center;gap:10px;font-size:11.5px;font-weight:700;letter-spacing:.14em;color:{{ ctaText }};background:{{ ctaBg }};border:1px solid {{ ctaBorder }};padding:13px 22px;transition:all .4s cubic-bezier(.16,1,.3,1)" style-hover="background:#7fa8ff;border-color:#8ea6e0;color:#fff">{{ t.cta.consultoria }}</a>
       <button onClick="{{ toggleMenu }}" data-mobmenu style="display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px">
         <span style="width:22px;height:1.5px;background:{{ headerText }};display:block"></span>
         <span style="width:22px;height:1.5px;background:{{ headerText }};display:block"></span>
@@ -110,10 +110,10 @@
 <div style="transition:opacity .3s cubic-bezier(.4,0,.2,1);opacity:{{ contentOpacity }}">
 
 <!-- ============ HERO ============ -->
-<section id="inicio" ref="{{ heroRef }}" style="position:relative;min-height:100vh;display:flex;align-items:center;color:#fff;overflow:hidden;padding:120px clamp(20px,4vw,56px) 80px;background:linear-gradient(90deg,rgba(11,18,32,.55),rgba(11,18,32,.2) 55%,rgba(11,18,32,0) 100%),url('./uploads/portada-bg.jpg') center/cover no-repeat #0b1220">
+<section id="inicio" ref="{{ heroRef }}" style="position:relative;min-height:100vh;display:flex;align-items:center;color:#fff;overflow:hidden;padding:120px clamp(20px,4vw,56px) 80px;background:linear-gradient(90deg,rgba(11,18,32,.55),rgba(11,18,32,.2) 55%,rgba(11,18,32,0) 100%),url('./uploads/portada-bg.jpg') center/cover no-repeat #0a2564">
   <div style="position:relative;max-width:1360px;margin:0 auto;width:100%">
     <div style="display:flex;align-items:center;gap:16px;margin-bottom:38px;opacity:0;transform:translateY(20px);transition:all 1s cubic-bezier(.16,1,.3,1);{{ heroS1 }}">
-      <span style="width:40px;height:1px;background:#2f4a8c"></span>
+      <span style="width:40px;height:1px;background:#7fa8ff"></span>
       <span style="font-size:11px;letter-spacing:.34em;color:#8a9099;font-weight:600">{{ t.hero.eyebrow }}</span>
     </div>
     <h1 style="font-weight:800;font-size:clamp(38px,7vw,104px);line-height:.98;letter-spacing:-.02em;max-width:16ch">
@@ -123,7 +123,7 @@
     </h1>
     <p style="margin-top:40px;max-width:56ch;font-size:clamp(15px,1.3vw,18px);line-height:1.7;color:#aab0ba;font-weight:400;opacity:0;transform:translateY(20px);transition:all 1s cubic-bezier(.16,1,.3,1) .6s;{{ heroS5 }}">{{ t.hero.sub }}</p>
     <div style="margin-top:48px;display:flex;flex-wrap:wrap;gap:16px;opacity:0;transform:translateY(20px);transition:all 1s cubic-bezier(.16,1,.3,1) .75s;{{ heroS6 }}">
-      <a href="#contacto" data-magnetic style="display:inline-flex;align-items:center;gap:12px;font-size:12.5px;font-weight:700;letter-spacing:.14em;color:#fff;background:linear-gradient(135deg,#3a5fae,#5c7fca);padding:18px 32px;transition:all .4s cubic-bezier(.16,1,.3,1)" style-hover="background:#2f4a8c;color:#fff">{{ t.hero.cta1 }} <span style="font-size:15px">→</span></a>
+      <a href="#contacto" data-magnetic style="display:inline-flex;align-items:center;gap:12px;font-size:12.5px;font-weight:700;letter-spacing:.14em;color:#fff;background:linear-gradient(135deg,#3a5fae,#5c7fca);padding:18px 32px;transition:all .4s cubic-bezier(.16,1,.3,1)" style-hover="background:#7fa8ff;color:#fff">{{ t.hero.cta1 }} <span style="font-size:15px">→</span></a>
       <a href="#servicios" style="display:inline-flex;align-items:center;gap:12px;font-size:12.5px;font-weight:700;letter-spacing:.14em;color:#fff;border:1px solid rgba(255,255,255,.2);padding:18px 32px;transition:all .4s cubic-bezier(.16,1,.3,1)" style-hover="border-color:#fff;background:rgba(255,255,255,.05)">{{ t.hero.cta2 }}</a>
     </div>
   </div>
@@ -134,13 +134,13 @@
 </section>
 
 <!-- ============ MANIFIESTO / QUIÉNES SOMOS ============ -->
-<section id="nosotros" data-divider style="background:linear-gradient(rgba(10,22,50,.72),rgba(10,22,50,.58)),url('./uploads/nosotros-bg.jpg') right center/cover no-repeat #eaf0fa;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
+<section id="nosotros" data-divider style="background:linear-gradient(160deg,#123f96,#0b2c76);padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
   <div style="max-width:1360px;margin:0 auto;position:relative">
     <div style="position:absolute;right:0;top:-40px;font-weight:800;font-size:clamp(120px,18vw,300px);line-height:.8;color:rgba(255,255,255,.06);letter-spacing:-.04em;pointer-events:none;z-index:0">01</div>
     <div style="position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(40px,6vw,110px);align-items:start" data-grid2>
       <div data-reveal>
         <div style="display:flex;align-items:center;gap:14px;margin-bottom:26px">
-          <span style="width:34px;height:2px;background:linear-gradient(90deg,#2f4a8c,#6f9bff)"></span>
+          <span style="width:34px;height:2px;background:linear-gradient(90deg,#7fa8ff,#aecbff)"></span>
           <span style="font-size:11px;letter-spacing:.3em;color:#8ea6e0;font-weight:700">{{ t.about.eyebrow }}</span>
         </div>
         <h2 style="font-weight:800;font-size:clamp(30px,4.4vw,64px);line-height:1.02;letter-spacing:-.02em;color:#eef3ff">{{ t.about.h1 }}<br><span style="color:#8a9099">{{ t.about.h2 }}</span></h2>
@@ -155,11 +155,11 @@
 </section>
 
 <!-- ============ VALORES ============ -->
-<section data-divider style="background:linear-gradient(rgba(9,22,52,.42),rgba(9,22,52,.42)),url('./uploads/valores-bg.jpg') center/cover no-repeat #0f2148;padding:clamp(70px,9vh,120px) clamp(20px,4vw,56px)">
+<section data-divider style="background:linear-gradient(160deg,#14449e,#0c2c78);padding:clamp(70px,9vh,120px) clamp(20px,4vw,56px)">
   <div style="max-width:1360px;margin:0 auto">
     <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:clamp(30px,5vh,60px);flex-wrap:wrap" data-reveal>
       <div style="display:flex;align-items:center;gap:14px">
-        <span style="width:34px;height:2px;background:linear-gradient(90deg,#2f4a8c,#6f9bff)"></span>
+        <span style="width:34px;height:2px;background:linear-gradient(90deg,#7fa8ff,#aecbff)"></span>
         <span style="font-size:11px;letter-spacing:.3em;color:#b9cdf2;font-weight:700">{{ t.values.eyebrow }}</span>
       </div>
     </div>
@@ -178,10 +178,10 @@
 </section>
 
 <!-- ============ SERVICIOS / CAPACIDADES ============ -->
-<section id="servicios" data-divider style="background:#0a1222;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
+<section id="servicios" data-divider style="background:#0e3487;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
   <div style="max-width:1360px;margin:0 auto">
     <div style="display:flex;align-items:center;gap:14px;margin-bottom:clamp(30px,5vh,56px)" data-reveal>
-      <span style="width:34px;height:2px;background:linear-gradient(90deg,#2f4a8c,#6f9bff)"></span>
+      <span style="width:34px;height:2px;background:linear-gradient(90deg,#7fa8ff,#aecbff)"></span>
       <span style="font-size:11px;letter-spacing:.3em;color:#8ea6e0;font-weight:700">{{ t.services.eyebrow }}</span>
     </div>
     <div style="border-top:1px solid rgba(255,255,255,.1)">
@@ -194,7 +194,7 @@
           <div style="display:flex;flex-wrap:wrap;gap:10px;align-content:flex-start">
             <sc-for list="{{ s.items }}" as="it" hint-placeholder-count="5">
               <span style="display:inline-flex;align-items:center;gap:9px;font-size:13.5px;font-weight:500;color:#b7c4dd;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:9px 16px">
-                <span style="width:5px;height:5px;border-radius:50%;background:#2f4a8c;flex:none"></span>{{ it }}
+                <span style="width:5px;height:5px;border-radius:50%;background:#7fa8ff;flex:none"></span>{{ it }}
               </span>
             </sc-for>
           </div>
@@ -205,7 +205,7 @@
 </section>
 
 <!-- ============ DESTACADA ============ -->
-<section style="position:relative;background:#0b1220;color:#fff;padding:clamp(100px,16vh,200px) clamp(20px,4vw,56px);overflow:hidden">
+<section style="position:relative;background:#0a2564;color:#fff;padding:clamp(100px,16vh,200px) clamp(20px,4vw,56px);overflow:hidden">
   <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.4;pointer-events:none" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1440 700">
     <g style="animation:sp-drift 30s ease-in-out infinite">
       <path d="M0 120 Q360 60 720 120 T1440 120" fill="none" stroke="#2f4a8c" stroke-width="0.6" opacity="0.6"/>
@@ -227,11 +227,11 @@
 </section>
 
 <!-- ============ METODOLOGÍA ============ -->
-<section id="metodologia" data-divider style="background:linear-gradient(180deg,#0f1b36,#0a1222);padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
+<section id="metodologia" data-divider style="background:linear-gradient(180deg,#14449e,#0d3182);padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
   <div style="max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,90px);align-items:center" data-grid2>
     <div data-reveal>
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:26px">
-        <span style="width:34px;height:2px;background:linear-gradient(90deg,#2f4a8c,#6f9bff)"></span>
+        <span style="width:34px;height:2px;background:linear-gradient(90deg,#7fa8ff,#aecbff)"></span>
         <span style="font-size:11px;letter-spacing:.3em;color:#8ea6e0;font-weight:700">{{ t.method.eyebrow }}</span>
       </div>
       <h2 style="font-weight:800;font-size:clamp(30px,4.4vw,60px);line-height:1.02;letter-spacing:-.02em;color:#eef3ff">{{ t.method.title }}</h2>
@@ -265,11 +265,11 @@
 </section>
 
 <!-- ============ PROCESO ============ -->
-<section id="proceso" data-divider style="background:#0a1222;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
+<section id="proceso" data-divider style="background:#0e3487;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
   <div style="max-width:1360px;margin:0 auto;display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,90px)" data-grid2>
     <div>
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px" data-reveal>
-        <span style="width:34px;height:2px;background:linear-gradient(90deg,#2f4a8c,#6f9bff)"></span>
+        <span style="width:34px;height:2px;background:linear-gradient(90deg,#7fa8ff,#aecbff)"></span>
         <span style="font-size:11px;letter-spacing:.3em;color:#8ea6e0;font-weight:700">{{ t.process.eyebrow }}</span>
       </div>
       <h2 data-reveal style="font-weight:800;font-size:clamp(28px,4vw,56px);line-height:1.02;letter-spacing:-.02em;color:#eef3ff">{{ t.process.title }}</h2>
@@ -291,10 +291,10 @@
 </section>
 
 <!-- ============ DIFERENCIALES ============ -->
-<section data-divider style="background:linear-gradient(180deg,#0f1b36,#0a1222);padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
+<section data-divider style="background:linear-gradient(180deg,#14449e,#0d3182);padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
   <div style="max-width:1360px;margin:0 auto">
     <div style="display:flex;align-items:center;gap:14px;margin-bottom:clamp(36px,5vh,64px)" data-reveal>
-      <span style="width:34px;height:2px;background:linear-gradient(90deg,#2f4a8c,#6f9bff)"></span>
+      <span style="width:34px;height:2px;background:linear-gradient(90deg,#7fa8ff,#aecbff)"></span>
       <span style="font-size:11px;letter-spacing:.3em;color:#8ea6e0;font-weight:700">{{ t.diff.eyebrow }}</span>
       <span style="font-weight:800;font-size:clamp(22px,3vw,40px);letter-spacing:-.02em;color:#eef3ff;margin-left:8px">{{ t.diff.title }}</span>
     </div>
@@ -317,17 +317,17 @@
 </section>
 
 <!-- ============ MISIÓN / VISIÓN ============ -->
-<section data-divider style="background:#0a1222;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
+<section data-divider style="background:#0e3487;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
   <div style="max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,32px);align-items:stretch" data-grid2>
     <div data-reveal style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:clamp(30px,4vw,54px)">
       <div style="display:flex;align-items:center;gap:16px;margin-bottom:26px">
         <span style="font-weight:800;font-size:14px;color:#8ea6e0;letter-spacing:.1em">01</span>
-        <span style="width:30px;height:2px;background:linear-gradient(90deg,#2f4a8c,#6f9bff)"></span>
+        <span style="width:30px;height:2px;background:linear-gradient(90deg,#7fa8ff,#aecbff)"></span>
         <span style="font-size:11px;letter-spacing:.3em;color:#8ea6e0;font-weight:700">{{ t.mv.mKicker }}</span>
       </div>
       <p style="font-weight:600;font-size:clamp(15px,1.25vw,18px);line-height:1.65;letter-spacing:-.005em;color:#eef3ff;text-wrap:pretty">{{ t.mv.mText }}</p>
     </div>
-    <div data-reveal style="background:linear-gradient(160deg,#16306b,#0c1a3c);border-radius:22px;padding:clamp(30px,4vw,54px)">
+    <div data-reveal style="background:linear-gradient(160deg,#1a52c0,#0e2f80);border-radius:22px;padding:clamp(30px,4vw,54px)">
       <div style="display:flex;align-items:center;gap:16px;margin-bottom:26px">
         <span style="font-weight:800;font-size:14px;color:#5c7fca;letter-spacing:.1em">02</span>
         <span style="width:30px;height:1px;background:#5c7fca"></span>
@@ -339,7 +339,7 @@
 </section>
 
 <!-- ============ CTA FINAL ============ -->
-<section id="contacto" data-divider style="position:relative;background:#0a1222;color:#eef3ff;padding:clamp(90px,14vh,180px) clamp(20px,4vw,56px);overflow:hidden">
+<section id="contacto" data-divider style="position:relative;background:#0e3487;color:#eef3ff;padding:clamp(90px,14vh,180px) clamp(20px,4vw,56px);overflow:hidden">
   <svg style="position:absolute;right:-6%;bottom:-20%;height:130%;opacity:.04;pointer-events:none" viewBox="0 0 120 80" fill="none">
     <path d="M60 12 L84 20 L84 44 C84 60 74 70 60 74 C46 70 36 60 36 44 L36 20 Z" stroke="#223763" stroke-width="0.8"/>
     <line x1="60" y1="6" x2="60" y2="70" stroke="#223763" stroke-width="0.5"/>
@@ -347,9 +347,9 @@
   <div style="position:relative;max-width:1120px;margin:0 auto">
     <div data-reveal style="text-align:center;max-width:760px;margin:0 auto">
       <div style="display:inline-flex;align-items:center;gap:14px;margin-bottom:22px">
-        <span style="width:28px;height:1px;background:#2f4a8c"></span>
+        <span style="width:28px;height:1px;background:#7fa8ff"></span>
         <span style="font-size:11px;letter-spacing:.3em;color:#8ea3c4;font-weight:600">{{ t.finalCta.eyebrow }}</span>
-        <span style="width:28px;height:1px;background:#2f4a8c"></span>
+        <span style="width:28px;height:1px;background:#7fa8ff"></span>
       </div>
       <h2 style="font-weight:800;font-size:clamp(28px,4vw,52px);line-height:1.1;letter-spacing:-.02em">{{ t.finalCta.h }}</h2>
       <p style="margin:22px auto 0;font-size:clamp(15px,1.3vw,18px);line-height:1.7;color:#b7c4dd;max-width:52ch">{{ t.finalCta.sub }}</p>
@@ -394,7 +394,7 @@
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer style="background:#080e19;color:#fff;padding:clamp(60px,8vh,90px) clamp(20px,4vw,56px) 40px">
+<footer style="background:#0a2564;color:#fff;padding:clamp(60px,8vh,90px) clamp(20px,4vw,56px) 40px">
   <div style="max-width:1360px;margin:0 auto">
     <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:clamp(30px,5vw,70px)" data-footer-grid>
       <div>
@@ -442,7 +442,7 @@
 
 <!-- MOBILE MENU -->
 <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
-<div style="position:fixed;inset:0;z-index:9500;background:#0b1220;color:#fff;display:flex;flex-direction:column;padding:28px clamp(20px,4vw,56px)">
+<div style="position:fixed;inset:0;z-index:9500;background:#0a2564;color:#fff;display:flex;flex-direction:column;padding:28px clamp(20px,4vw,56px)">
   <div style="display:flex;justify-content:space-between;align-items:center">
     <span style="font-weight:800;font-size:22px;letter-spacing:.06em">SP</span>
     <button onClick="{{ toggleMenu }}" style="background:none;border:none;color:#fff;font-size:30px;cursor:pointer;line-height:1">×</button>
@@ -745,7 +745,7 @@ class Component extends DCLogic {
       const c=a.map((v,i)=>Math.round(v+(b[i]-v)*f));
       return 'rgb('+c[0]+','+c[1]+','+c[2]+')';
     };
-    const mvBg=mixHex('#eaf0fa','#0b1220',smoothstep(toVision));
+    const mvBg=mixHex('#eaf0fa','#0a2564',smoothstep(toVision));
 
     const values=t.values.items.map((v,i)=>({ n:'0'+(i+1), title:v.title, desc:v.desc }));
 
@@ -798,7 +798,7 @@ class Component extends DCLogic {
       scrollPct:s.scrollPct,
       // header theming
       headerPad: solid?'14px 0':'26px 0',
-      headerBg: solid?'rgba(11,18,32,0.82)':'transparent',
+      headerBg: solid?'rgba(11,34,92,0.86)':'transparent',
       headerBlur: solid?'saturate(140%) blur(14px)':'none',
       headerBorder: solid?'1px solid rgba(255,255,255,.08)':'1px solid transparent',
       headerText: '#ffffff',
