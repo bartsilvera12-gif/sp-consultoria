@@ -14,12 +14,15 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   html,body{overflow-x:clip}
-  body{font-family:'Manrope',system-ui,sans-serif;background:#0e3487;color:#eef3ff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{font-family:'Manrope',system-ui,sans-serif;color:#e8eefc;background-color:#0a1a3d;background-image:radial-gradient(1100px 780px at 12% 6%,rgba(46,98,182,.5),rgba(46,98,182,0) 55%),radial-gradient(1000px 720px at 97% 3%,rgba(30,78,150,.46),rgba(30,78,150,0) 52%),radial-gradient(1300px 1000px at 84% 100%,rgba(20,60,128,.5),rgba(20,60,128,0) 55%);background-attachment:fixed;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  h1,h2,h3{font-family:'Sora','Manrope',sans-serif;letter-spacing:-.03em}
+  body::after{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:150px 150px}
+  [data-diff-card]{box-shadow:0 24px 48px -28px rgba(0,10,36,.85)}
   ::selection{background:#5c7fca;color:#fff}
   a{color:#8ea6e0;text-decoration:none}
   a:hover{color:#8ea6e0}
@@ -134,7 +137,7 @@
 </section>
 
 <!-- ============ MANIFIESTO / QUIÉNES SOMOS ============ -->
-<section id="nosotros" data-divider style="background:linear-gradient(160deg,#123f96,#0b2c76);padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
+<section id="nosotros" data-divider style="background:transparent;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
   <div style="max-width:1360px;margin:0 auto;position:relative">
     <div style="position:absolute;right:0;top:-40px;font-weight:800;font-size:clamp(120px,18vw,300px);line-height:.8;color:rgba(255,255,255,.06);letter-spacing:-.04em;pointer-events:none;z-index:0">01</div>
     <div style="position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(40px,6vw,110px);align-items:start" data-grid2>
@@ -155,7 +158,7 @@
 </section>
 
 <!-- ============ VALORES ============ -->
-<section data-divider style="background:linear-gradient(160deg,#14449e,#0c2c78);padding:clamp(70px,9vh,120px) clamp(20px,4vw,56px)">
+<section data-divider style="background:transparent;padding:clamp(70px,9vh,120px) clamp(20px,4vw,56px)">
   <div style="max-width:1360px;margin:0 auto">
     <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:clamp(30px,5vh,60px);flex-wrap:wrap" data-reveal>
       <div style="display:flex;align-items:center;gap:14px">
@@ -178,7 +181,7 @@
 </section>
 
 <!-- ============ SERVICIOS / CAPACIDADES ============ -->
-<section id="servicios" data-divider style="background:#0e3487;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
+<section id="servicios" data-divider style="background:transparent;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
   <div style="max-width:1360px;margin:0 auto">
     <div style="display:flex;align-items:center;gap:14px;margin-bottom:clamp(30px,5vh,56px)" data-reveal>
       <span style="width:34px;height:2px;background:linear-gradient(90deg,#7fa8ff,#aecbff)"></span>
@@ -205,7 +208,7 @@
 </section>
 
 <!-- ============ DESTACADA ============ -->
-<section style="position:relative;background:#0a2564;color:#fff;padding:clamp(100px,16vh,200px) clamp(20px,4vw,56px);overflow:hidden">
+<section style="position:relative;background:rgba(6,14,36,.4);color:#fff;padding:clamp(100px,16vh,200px) clamp(20px,4vw,56px);overflow:hidden">
   <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.4;pointer-events:none" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1440 700">
     <g style="animation:sp-drift 30s ease-in-out infinite">
       <path d="M0 120 Q360 60 720 120 T1440 120" fill="none" stroke="#2f4a8c" stroke-width="0.6" opacity="0.6"/>
@@ -227,7 +230,7 @@
 </section>
 
 <!-- ============ METODOLOGÍA ============ -->
-<section id="metodologia" data-divider style="background:linear-gradient(180deg,#14449e,#0d3182);padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
+<section id="metodologia" data-divider style="background:transparent;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
   <div style="max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,90px);align-items:center" data-grid2>
     <div data-reveal>
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:26px">
@@ -265,7 +268,7 @@
 </section>
 
 <!-- ============ PROCESO ============ -->
-<section id="proceso" data-divider style="background:#0e3487;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
+<section id="proceso" data-divider style="background:transparent;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
   <div style="max-width:1360px;margin:0 auto;display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,90px)" data-grid2>
     <div>
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px" data-reveal>
@@ -291,7 +294,7 @@
 </section>
 
 <!-- ============ DIFERENCIALES ============ -->
-<section data-divider style="background:linear-gradient(180deg,#14449e,#0d3182);padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
+<section data-divider style="background:transparent;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
   <div style="max-width:1360px;margin:0 auto">
     <div style="display:flex;align-items:center;gap:14px;margin-bottom:clamp(36px,5vh,64px)" data-reveal>
       <span style="width:34px;height:2px;background:linear-gradient(90deg,#7fa8ff,#aecbff)"></span>
@@ -317,7 +320,7 @@
 </section>
 
 <!-- ============ MISIÓN / VISIÓN ============ -->
-<section data-divider style="background:#0e3487;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
+<section data-divider style="background:transparent;padding:clamp(90px,12vh,160px) clamp(20px,4vw,56px)">
   <div style="max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,32px);align-items:stretch" data-grid2>
     <div data-reveal style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:clamp(30px,4vw,54px)">
       <div style="display:flex;align-items:center;gap:16px;margin-bottom:26px">
@@ -339,7 +342,7 @@
 </section>
 
 <!-- ============ CTA FINAL ============ -->
-<section id="contacto" data-divider style="position:relative;background:#0e3487;color:#eef3ff;padding:clamp(90px,14vh,180px) clamp(20px,4vw,56px);overflow:hidden">
+<section id="contacto" data-divider style="position:relative;background:transparent;color:#eef3ff;padding:clamp(90px,14vh,180px) clamp(20px,4vw,56px);overflow:hidden">
   <svg style="position:absolute;right:-6%;bottom:-20%;height:130%;opacity:.04;pointer-events:none" viewBox="0 0 120 80" fill="none">
     <path d="M60 12 L84 20 L84 44 C84 60 74 70 60 74 C46 70 36 60 36 44 L36 20 Z" stroke="#223763" stroke-width="0.8"/>
     <line x1="60" y1="6" x2="60" y2="70" stroke="#223763" stroke-width="0.5"/>
@@ -394,7 +397,7 @@
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer style="background:#0a2564;color:#fff;padding:clamp(60px,8vh,90px) clamp(20px,4vw,56px) 40px">
+<footer style="background:rgba(4,10,26,.72);color:#fff;padding:clamp(60px,8vh,90px) clamp(20px,4vw,56px) 40px">
   <div style="max-width:1360px;margin:0 auto">
     <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr auto;gap:clamp(30px,5vw,70px)" data-footer-grid>
       <div>
@@ -442,7 +445,7 @@
 
 <!-- MOBILE MENU -->
 <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
-<div style="position:fixed;inset:0;z-index:9500;background:#0a2564;color:#fff;display:flex;flex-direction:column;padding:28px clamp(20px,4vw,56px)">
+<div style="position:fixed;inset:0;z-index:9500;background:#0b1f44;color:#fff;display:flex;flex-direction:column;padding:28px clamp(20px,4vw,56px)">
   <div style="display:flex;justify-content:space-between;align-items:center">
     <span style="font-weight:800;font-size:22px;letter-spacing:.06em">SP</span>
     <button onClick="{{ toggleMenu }}" style="background:none;border:none;color:#fff;font-size:30px;cursor:pointer;line-height:1">×</button>
