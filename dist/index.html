@@ -155,21 +155,21 @@
 </section>
 
 <!-- ============ VALORES ============ -->
-<section data-divider style="background:linear-gradient(90deg,rgba(255,255,255,.55),rgba(255,255,255,.18) 48%,rgba(255,255,255,0) 78%),url('./uploads/valores-bg.jpg') right center/cover no-repeat #eef3fc;padding:clamp(70px,9vh,120px) clamp(20px,4vw,56px)">
+<section data-divider style="background:linear-gradient(rgba(9,22,52,.42),rgba(9,22,52,.42)),url('./uploads/valores-bg.jpg') center/cover no-repeat #0f2148;padding:clamp(70px,9vh,120px) clamp(20px,4vw,56px)">
   <div style="max-width:1360px;margin:0 auto">
     <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:clamp(30px,5vh,60px);flex-wrap:wrap" data-reveal>
       <div style="display:flex;align-items:center;gap:14px">
         <span style="width:34px;height:2px;background:linear-gradient(90deg,#2f4a8c,#6f9bff)"></span>
-        <span style="font-size:11px;letter-spacing:.3em;color:#2f4a8c;font-weight:700">{{ t.values.eyebrow }}</span>
+        <span style="font-size:11px;letter-spacing:.3em;color:#b9cdf2;font-weight:700">{{ t.values.eyebrow }}</span>
       </div>
     </div>
-    <div style="border-top:1px solid #e7eaee">
+    <div style="border-top:1px solid rgba(255,255,255,.16)">
       <sc-for list="{{ values }}" as="v" hint-placeholder-count="6">
-        <div data-reveal style="display:grid;grid-template-columns:64px 1fr;gap:24px;align-items:baseline;border-bottom:1px solid #e3e9f2;padding:clamp(20px,3vh,34px) 0">
-          <span style="font-weight:800;font-size:15px;color:#3a5fae">{{ v.n }}</span>
+        <div data-reveal style="display:grid;grid-template-columns:64px 1fr;gap:24px;align-items:baseline;border-bottom:1px solid rgba(255,255,255,.14);padding:clamp(20px,3vh,34px) 0">
+          <span style="font-weight:800;font-size:15px;color:#8ea6e0">{{ v.n }}</span>
           <div style="display:grid;grid-template-columns:minmax(200px,1fr) 1.25fr;gap:16px 40px;align-items:baseline" data-grid2>
-            <span style="font-weight:700;font-size:clamp(22px,3vw,38px);letter-spacing:-.02em;line-height:1.05;color:#16233f">{{ v.title }}</span>
-            <span style="font-size:15px;line-height:1.7;color:#52607a;max-width:52ch">{{ v.desc }}</span>
+            <span style="font-weight:700;font-size:clamp(22px,3vw,38px);letter-spacing:-.02em;line-height:1.05;color:#ffffff">{{ v.title }}</span>
+            <span style="font-size:15px;line-height:1.7;color:rgba(255,255,255,.72);max-width:52ch">{{ v.desc }}</span>
           </div>
         </div>
       </sc-for>
