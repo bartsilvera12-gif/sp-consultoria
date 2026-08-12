@@ -157,10 +157,11 @@ export default function Home() {
             <Reveal>
               <SectionHeading eyebrow="Metodología de trabajo" title="¿Cómo trabajamos?" />
               <p className="mt-6 max-w-lg leading-relaxed text-muted-foreground">{method.text}</p>
-              <div className="mt-8 flex justify-start">
-                <div className="relative grid size-56 place-items-center rounded-full border border-black/5 bg-[var(--muted)] sm:size-64">
-                  <div className="absolute inset-5 rounded-full border border-black/5" />
-                  <Image src="/brand/logo-crest.png" alt="SP Consultoría" width={200} height={110} className="relative h-auto w-32" />
+              <div className="mt-10 flex justify-start">
+                <div className="relative grid size-56 place-items-center rounded-full bg-gradient-to-br from-[#1a2a58] to-[var(--navy)] shadow-xl ring-1 ring-black/5 sm:size-64">
+                  <div className="pointer-events-none absolute inset-4 rounded-full border border-white/10" />
+                  <div className="pointer-events-none absolute inset-0 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]" />
+                  <Image src="/brand/logo-emblem.png" alt="SP Consultoría" width={240} height={130} className="relative h-auto w-40" />
                 </div>
               </div>
             </Reveal>
