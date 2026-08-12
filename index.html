@@ -20,9 +20,14 @@
   html{scroll-behavior:smooth}
   html,body{overflow-x:clip}
   body{font-family:'Manrope',system-ui,sans-serif;color:#e8eefc;background-color:#0a1c42;background-image:radial-gradient(135% 130% at 50% 32%,rgba(6,12,32,0) 50%,rgba(4,9,26,.6) 100%),radial-gradient(1000px 720px at 90% -8%,rgba(190,201,222,.30),rgba(190,201,222,0) 52%),radial-gradient(1200px 900px at 10% 6%,rgba(52,104,190,.42),rgba(52,104,190,0) 55%),radial-gradient(1100px 820px at 96% 106%,rgba(150,166,196,.22),rgba(150,166,196,0) 55%),linear-gradient(160deg,#0c2352 0%,#173a72 48%,#0d2149 100%);background-attachment:fixed;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-  h1,h2,h3{font-family:'Sora','Manrope',sans-serif;letter-spacing:-.03em}
+  h1,h2,h3{font-family:'Sora','Manrope',sans-serif;letter-spacing:-.03em;text-wrap:balance}
+  p{text-wrap:pretty}
+  button:active{transform:translateY(1px)}
   body::after{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:150px 150px}
   [data-diff-card]{box-shadow:0 24px 48px -28px rgba(0,10,36,.85),inset 0 1px 0 rgba(255,255,255,.09)}
+  [data-diff-card]:hover{box-shadow:0 30px 64px -26px rgba(3,12,42,.92),0 0 0 1px rgba(150,180,255,.16),inset 0 1px 0 rgba(255,255,255,.12)!important;border-color:rgba(160,185,240,.42)!important}
+  [data-valrow]{transition:background .45s ease,padding-left .45s cubic-bezier(.16,1,.3,1);border-radius:8px}
+  [data-valrow]:hover{background:rgba(255,255,255,.035);padding-left:16px}
   ::selection{background:#5c7fca;color:#fff}
   a{color:#b9c6de;text-decoration:none}
   a:hover{color:#b9c6de}
@@ -168,7 +173,7 @@
     </div>
     <div style="border-top:1px solid rgba(255,255,255,.16)">
       <sc-for list="{{ values }}" as="v" hint-placeholder-count="6">
-        <div data-reveal style="display:grid;grid-template-columns:64px 1fr;gap:24px;align-items:baseline;border-bottom:1px solid rgba(255,255,255,.14);padding:clamp(20px,3vh,34px) 0">
+        <div data-reveal data-valrow style="display:grid;grid-template-columns:64px 1fr;gap:24px;align-items:baseline;border-bottom:1px solid rgba(255,255,255,.14);padding:clamp(20px,3vh,34px) 0">
           <span style="font-weight:800;font-size:15px;color:#b9c6de">{{ v.n }}</span>
           <div style="display:grid;grid-template-columns:minmax(200px,1fr) 1.25fr;gap:16px 40px;align-items:baseline" data-grid2>
             <span style="font-weight:700;font-size:clamp(22px,3vw,38px);letter-spacing:-.02em;line-height:1.05;color:#ffffff">{{ v.title }}</span>
