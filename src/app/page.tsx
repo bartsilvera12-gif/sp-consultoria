@@ -66,10 +66,6 @@ export default function Home() {
                 <Image src="/brand/about.jpg" alt="Equipo de SP Consultoría" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--navy)]/25 to-transparent" />
               </div>
-              <div className="absolute -bottom-5 -left-3 hidden rounded-xl bg-[var(--navy)] px-6 py-4 text-white shadow-lg sm:block">
-                <p className="text-2xl font-extrabold leading-none">+</p>
-                <p className="mt-1 text-xs font-medium tracking-wide text-white/70">Público y privado</p>
-              </div>
             </Reveal>
           </div>
         </Section>
