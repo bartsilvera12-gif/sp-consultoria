@@ -5,10 +5,10 @@ import { cn } from "@/lib/utils";
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { Reveal } from "@/components/site/reveal";
-import { Eyebrow, Section, Divider } from "@/components/site/primitives";
+import { Eyebrow, Section, SectionHeading } from "@/components/site/primitives";
 import { Icon } from "@/components/site/icon";
 import {
-  hero, about, values, services, feature, method, process, diff, mv, cta, contact,
+  hero, about, values, services, method, process, diff, mv, cta, contact,
 } from "@/lib/content";
 
 export default function Home() {
@@ -16,32 +16,33 @@ export default function Home() {
     <>
       <Header />
       <main className="flex-1">
-        {/* HERO */}
-        <section id="inicio" className="relative flex min-h-[100svh] items-center overflow-hidden px-5 pb-24 pt-32 sm:px-8">
+        {/* ===== HERO (dark cover) ===== */}
+        <section id="inicio" className="relative flex min-h-[100svh] items-center overflow-hidden px-5 pb-24 pt-32 text-white sm:px-8">
           <div className="absolute inset-0 -z-10">
-            <Image src="/brand/hero.jpg" alt="" fill priority className="object-cover object-right opacity-60" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0a1830] via-[#0a1830]/85 to-[#0a1830]/30" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a1830] via-transparent to-[#0a1830]/50" />
+            <Image src="/brand/hero.jpg" alt="" fill priority className="object-cover object-center" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0c1430] via-[#101a3b]/95 to-[#16265c]/85" />
+            <div className="absolute inset-0 bg-[#0c1430]/40" />
           </div>
-          <div className="mx-auto w-full max-w-[76rem]">
-            <Reveal><Eyebrow>{hero.eyebrow}</Eyebrow></Reveal>
+          <div className="mx-auto w-full max-w-[74rem]">
+            <Reveal>
+              <Eyebrow light>{hero.eyebrow}</Eyebrow>
+            </Reveal>
             <Reveal delay={90}>
-              <h1 className="mt-7 max-w-[15ch] text-balance text-5xl font-bold leading-[1.02] tracking-tight sm:text-7xl">
-                <span className="block">{hero.line1}</span>
-                <span className="block">{hero.line2}</span>
-                <span className="block bg-gradient-to-r from-primary to-[var(--silver)] bg-clip-text text-transparent">{hero.line3}</span>
+              <h1 className="mt-7 max-w-[18ch] text-balance text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl">
+                {hero.line1}<br />{hero.line2}<br />
+                <span className="text-[var(--silver)]">{hero.line3}</span>
               </h1>
             </Reveal>
             <Reveal delay={170}>
-              <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">{hero.sub}</p>
+              <p className="mt-8 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">{hero.sub}</p>
             </Reveal>
             <Reveal delay={250}>
               <div className="mt-10 flex flex-wrap gap-4">
-                <a href={contact.wa} target="_blank" rel="noopener" className={cn(buttonVariants(), "group h-12 gap-2 rounded-full px-7 text-[15px] font-semibold")}>
+                <a href={contact.wa} target="_blank" rel="noopener" className={cn(buttonVariants(), "group h-12 gap-2 rounded-full bg-white px-7 text-[15px] font-semibold text-navy hover:bg-white/90")}>
                   {hero.cta1}
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
                 </a>
-                <a href="#servicios" className={cn(buttonVariants({ variant: "outline" }), "h-12 rounded-full border-white/20 bg-transparent px-7 text-[15px] font-semibold hover:bg-white/5")}>
+                <a href="#servicios" className={cn(buttonVariants({ variant: "outline" }), "h-12 rounded-full border-white/30 bg-transparent px-7 text-[15px] font-semibold text-white hover:bg-white/10")}>
                   {hero.cta2}
                 </a>
               </div>
@@ -49,68 +50,99 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ABOUT */}
-        <Section id="nosotros" divider={false}>
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
+        {/* ===== QUIÉNES SOMOS ===== */}
+        <Section id="nosotros" tone="white">
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <Reveal>
-              <Eyebrow>{about.eyebrow}</Eyebrow>
-              <h2 className="mt-6 text-balance text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl">
-                {about.h1}
-                <br />
-                <span className="text-muted-foreground">{about.h2}</span>
-              </h2>
-            </Reveal>
-            <Reveal delay={120} className="relative">
-              <span className="pointer-events-none absolute -top-12 right-0 select-none text-[8rem] font-bold leading-none text-white/[0.04]">01</span>
-              <div className="relative space-y-6 text-[15px] leading-relaxed text-foreground/85 sm:text-base">
+              <Eyebrow>Quiénes somos</Eyebrow>
+              <h2 className="section-title mt-4 text-3xl sm:text-4xl md:text-5xl">{about.h1}<br /><span className="text-muted-foreground">{about.h2}</span></h2>
+              <div className="mt-7 space-y-5 text-[15px] leading-relaxed text-muted-foreground sm:text-base">
                 {about.paras.map((p, i) => <p key={i}>{p}</p>)}
-                <p className="border-l-2 border-primary/60 pl-5 text-muted-foreground">{about.quote}</p>
+              </div>
+              <p className="mt-6 border-l-2 border-[var(--navy-2)] pl-5 text-[15px] leading-relaxed text-foreground/80">{about.quote}</p>
+            </Reveal>
+            <Reveal delay={140} className="relative">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+                <Image src="/brand/about.jpg" alt="Equipo de SP Consultoría" fill className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--navy)]/25 to-transparent" />
+              </div>
+              <div className="absolute -bottom-5 -left-3 hidden rounded-xl bg-[var(--navy)] px-6 py-4 text-white shadow-lg sm:block">
+                <p className="text-2xl font-extrabold leading-none">+</p>
+                <p className="mt-1 text-xs font-medium tracking-wide text-white/70">Público y privado</p>
               </div>
             </Reveal>
           </div>
         </Section>
 
-        {/* VALUES */}
-        <Section>
-          <Reveal><Eyebrow>{values.eyebrow}</Eyebrow></Reveal>
-          <div className="mt-12 border-y border-white/10">
-            {values.items.map((v, i) => (
-              <Reveal key={v.title} delay={i * 40}>
-                <div className="grid items-baseline gap-3 border-b border-white/10 py-7 last:border-b-0 sm:grid-cols-[3.5rem_1fr] sm:gap-8">
-                  <span className="font-mono text-sm tabular-nums text-primary">0{i + 1}</span>
-                  <div className="grid items-baseline gap-2 sm:grid-cols-[minmax(0,1fr)_1.25fr] sm:gap-10">
-                    <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">{v.title}</h3>
-                    <p className="text-[15px] leading-relaxed text-muted-foreground">{v.desc}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+        {/* ===== MISIÓN / VISIÓN ===== */}
+        <Section tone="muted">
+          <Reveal><Eyebrow>Nuestro propósito</Eyebrow></Reveal>
+          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+            <Reveal className="h-full">
+              <div className="flex h-full flex-col rounded-2xl border border-black/5 bg-white p-8 shadow-sm sm:p-10">
+                <span className="inline-flex w-fit rounded-full bg-[var(--navy-2)] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-white">{mv.mission.kicker}</span>
+                <p className="mt-6 leading-relaxed text-muted-foreground">{mv.mission.text}</p>
+              </div>
+            </Reveal>
+            <Reveal delay={120} className="h-full">
+              <div className="flex h-full flex-col rounded-2xl bg-[var(--navy)] p-8 text-white shadow-md sm:p-10">
+                <span className="inline-flex w-fit rounded-full bg-white/15 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-white">{mv.vision.kicker}</span>
+                <p className="mt-6 leading-relaxed text-white/80">{mv.vision.text}</p>
+              </div>
+            </Reveal>
           </div>
         </Section>
 
-        {/* SERVICES */}
-        <Section id="servicios">
+        {/* ===== VALORES ===== */}
+        <Section tone="white">
+          <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:items-center lg:gap-16">
+            <Reveal className="order-2 lg:order-1">
+              <div className="relative aspect-[3/4] max-h-[30rem] overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+                <Image src="/brand/teamwork.jpg" alt="Equipo SP" fill className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--navy)]/40 to-transparent" />
+              </div>
+            </Reveal>
+            <div className="order-1 lg:order-2">
+              <Reveal>
+                <Eyebrow>Nuestros valores</Eyebrow>
+                <h2 className="section-title mt-4 text-3xl sm:text-4xl md:text-[2.6rem]">Lo que sostiene cada trabajo.</h2>
+              </Reveal>
+              <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                {values.items.map((v, i) => (
+                  <Reveal key={v.title} delay={i * 50}>
+                    <div className="group flex h-full items-start gap-4 rounded-xl border border-black/5 bg-[var(--muted)] p-4 transition-all duration-300 hover:border-[var(--navy-2)]/25 hover:bg-white hover:shadow-md">
+                      <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-[var(--navy-2)] font-mono text-sm font-semibold text-white">0{i + 1}</span>
+                      <div>
+                        <h3 className="text-[15px] font-bold text-navy">{v.title}</h3>
+                        <p className="mt-1 text-[13px] leading-relaxed text-muted-foreground">{v.desc}</p>
+                      </div>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        {/* ===== SERVICIOS ===== */}
+        <Section id="servicios" tone="muted">
           <Reveal>
-            <Eyebrow>{services.eyebrow}</Eyebrow>
-            <h2 className="mt-6 max-w-2xl text-balance text-3xl font-bold tracking-tight sm:text-5xl">{services.title}</h2>
-            <p className="mt-4 max-w-xl leading-relaxed text-muted-foreground">{services.sub}</p>
+            <SectionHeading eyebrow="Servicios" title={<>Cinco líneas de trabajo,<br className="hidden sm:block" /> un mismo estándar.</>} />
+            <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">{services.sub}</p>
           </Reveal>
-          <div className="mt-14 border-t border-white/10">
+          <div className="mt-12 grid gap-5 md:grid-cols-2">
             {services.items.map((s, i) => (
-              <Reveal key={s.title} delay={i * 40}>
-                <div className="grid gap-6 border-b border-white/10 py-9 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:gap-14">
-                  <div className="flex items-center gap-5">
-                    <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-primary/12 text-primary">
+              <Reveal key={s.title} delay={i * 60}>
+                <div className="group h-full rounded-2xl border border-black/5 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-8">
+                  <div className="flex items-center gap-4">
+                    <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-[var(--navy-2)]/8 text-navy transition-colors group-hover:bg-[var(--navy-2)] group-hover:text-white">
                       <Icon name={s.icon} className="size-6" />
                     </span>
-                    <div className="flex items-baseline gap-4">
-                      <span className="font-mono text-sm tabular-nums text-muted-foreground">0{i + 1}</span>
-                      <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">{s.title}</h3>
-                    </div>
+                    <h3 className="text-lg font-bold uppercase tracking-wide text-navy">{s.title}</h3>
                   </div>
-                  <div className="flex flex-wrap gap-2.5 lg:justify-end">
+                  <div className="mt-5 flex flex-wrap gap-2">
                     {s.tags.map((t) => (
-                      <span key={t} className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-[13px] text-foreground/85">{t}</span>
+                      <span key={t} className="rounded-full bg-[var(--muted)] px-3.5 py-1.5 text-[12.5px] text-muted-foreground">{t}</span>
                     ))}
                   </div>
                 </div>
@@ -119,145 +151,92 @@ export default function Home() {
           </div>
         </Section>
 
-        {/* FEATURE QUOTE */}
-        <section className="relative my-6 overflow-hidden px-5 sm:px-8">
-          <div className="absolute inset-0 -z-10">
-            <Image src="/brand/feature.jpg" alt="" fill className="object-cover opacity-55" />
-            <div className="absolute inset-0 bg-[#070f22]/75" />
-          </div>
-          <div className="mx-auto max-w-3xl py-28 text-center sm:py-36">
+        {/* ===== METODOLOGÍA ===== */}
+        <Section id="metodologia" tone="white">
+          <div className="grid gap-14 lg:grid-cols-2 lg:gap-16">
             <Reveal>
-              <span className="mx-auto block h-10 w-px bg-gradient-to-b from-primary to-transparent" />
-              <p className="mt-8 text-balance text-2xl font-medium leading-snug tracking-tight sm:text-4xl">
-                &ldquo;{feature.quote}&rdquo;
-              </p>
-              <div className="mt-10 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-muted-foreground">
-                {feature.pillars.map((p, i) => (
-                  <span key={p} className="flex items-center gap-4">
-                    {i > 0 && <span className="size-1 rounded-full bg-primary/60" />}
-                    {p}
-                  </span>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* METHOD */}
-        <Section id="metodologia" divider={false}>
-          <div className="grid gap-14 lg:grid-cols-2 lg:items-center lg:gap-20">
-            <Reveal>
-              <Eyebrow>{method.eyebrow}</Eyebrow>
-              <h2 className="mt-6 text-balance text-3xl font-bold leading-tight tracking-tight sm:text-5xl">{method.title}</h2>
+              <SectionHeading eyebrow="Metodología de trabajo" title="¿Cómo trabajamos?" />
               <p className="mt-6 max-w-lg leading-relaxed text-muted-foreground">{method.text}</p>
-              <div className="mt-10 border-y border-white/10">
+              <div className="mt-8 flex justify-start">
+                <div className="relative grid size-56 place-items-center rounded-full border border-black/5 bg-[var(--muted)] sm:size-64">
+                  <div className="absolute inset-5 rounded-full border border-black/5" />
+                  <Image src="/brand/logo-crest.png" alt="SP Consultoría" width={200} height={110} className="relative h-auto w-32" />
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={120}>
+              <span className="inline-flex rounded-full bg-[var(--navy-2)] px-5 py-2 text-sm font-semibold text-white">Estándares de referencia</span>
+              <div className="mt-7 space-y-4">
                 {method.standards.map((st) => (
-                  <div key={st.code} className="grid grid-cols-[9rem_1fr] gap-4 border-b border-white/10 py-4 last:border-b-0">
-                    <span className="font-semibold tracking-wide text-[var(--silver)]">{st.code}</span>
-                    <span className="text-sm text-muted-foreground">{st.name}</span>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-            <Reveal delay={120} className="flex justify-center">
-              <div className="glass relative grid size-72 place-items-center rounded-full sm:size-80">
-                <div className="absolute inset-6 rounded-full border border-white/10" />
-                <div className="absolute size-40 rounded-full bg-primary/15 blur-3xl" />
-                <Image src="/brand/logo-crest.png" alt="SP Consultoría" width={220} height={120} className="relative h-auto w-40" />
-              </div>
-            </Reveal>
-          </div>
-        </Section>
-
-        {/* PROCESS */}
-        <Section id="proceso">
-          <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-            <Reveal>
-              <Eyebrow>{process.eyebrow}</Eyebrow>
-              <h2 className="mt-6 text-balance text-3xl font-bold tracking-tight sm:text-5xl">{process.title}</h2>
-            </Reveal>
-            <div>
-              {process.phases.map((p, i) => (
-                <Reveal key={p.title} delay={i * 60}>
-                  <div className="grid gap-4 border-t border-white/10 py-8 sm:grid-cols-[6rem_1fr] sm:gap-8">
-                    <span className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-primary">Fase 0{i + 1}</span>
+                  <div key={st.code} className="flex items-start gap-4 border-b border-black/5 pb-4 last:border-b-0">
+                    <span className="mt-1.5 size-2 shrink-0 rounded-full bg-[var(--navy-2)]" />
                     <div>
-                      <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">{p.title}</h3>
-                      <p className="mt-3 max-w-xl leading-relaxed text-muted-foreground">{p.desc}</p>
+                      <span className="font-bold text-navy">{st.code}</span>
+                      <span className="text-muted-foreground"> — {st.name}</span>
                     </div>
                   </div>
-                </Reveal>
-              ))}
-            </div>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </Section>
 
-        {/* DIFFERENTIALS */}
-        <Section>
+        {/* ===== DIFERENCIALES ===== */}
+        <Section tone="muted">
           <Reveal>
-            <Eyebrow>{diff.eyebrow}</Eyebrow>
-            <h2 className="mt-6 text-3xl font-bold tracking-tight sm:text-5xl">{diff.title}</h2>
+            <SectionHeading eyebrow="Por qué elegirnos" title="Nuestros diferenciales" />
           </Reveal>
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {diff.items.map((d, i) => (
               <Reveal key={d.title} delay={i * 50}>
-                <div className="group glass relative h-full overflow-hidden rounded-2xl p-7 transition-all duration-500 hover:-translate-y-1.5 hover:border-primary/40">
-                  <span className="absolute right-5 top-5 font-mono text-xs tabular-nums text-muted-foreground/60">0{i + 1}</span>
-                  <span className="grid size-12 place-items-center rounded-xl bg-gradient-to-br from-primary/25 to-primary/5 text-primary">
-                    <Icon name={d.icon} className="size-6" />
+                <div className="group flex h-full items-center gap-4 rounded-2xl border border-black/5 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-[var(--navy-2)]/8 text-navy transition-colors group-hover:bg-[var(--navy-2)] group-hover:text-white">
+                    <Icon name={d.icon} className="size-5" />
                   </span>
-                  <h3 className="mt-8 text-lg font-semibold tracking-tight">{d.title}</h3>
-                  <span className="mt-4 block h-px w-10 bg-primary/50 transition-all duration-500 group-hover:w-full" />
+                  <h3 className="text-[15px] font-bold text-navy">{d.title}</h3>
                 </div>
               </Reveal>
             ))}
           </div>
         </Section>
 
-        {/* MISSION / VISION */}
-        <Section>
-          <div className="grid gap-6 lg:grid-cols-2">
-            <Reveal className="h-full">
-              <div className="glass flex h-full flex-col rounded-3xl p-9 sm:p-11">
-                <div className="flex items-center gap-4">
-                  <span className="font-mono text-sm text-primary">01</span>
-                  <span className="h-px w-8 bg-white/20" />
-                  <span className="eyebrow">{mv.mission.kicker}</span>
+        {/* ===== PROCESO ===== */}
+        <Section id="proceso" tone="white">
+          <Reveal>
+            <SectionHeading eyebrow="Proceso de trabajo" title="Un proceso estructurado." />
+          </Reveal>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2">
+            {process.phases.map((p, i) => (
+              <Reveal key={p.title} delay={i * 60}>
+                <div className="relative h-full overflow-hidden rounded-2xl border border-black/5 bg-[var(--muted)] p-7 sm:p-8">
+                  <span className="pointer-events-none absolute -right-2 -top-4 select-none text-7xl font-extrabold text-[var(--navy-2)]/[0.06]">0{i + 1}</span>
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--navy-2)]">Fase 0{i + 1}</span>
+                  <h3 className="mt-3 text-xl font-bold text-navy">{p.title}</h3>
+                  <p className="mt-3 leading-relaxed text-muted-foreground">{p.desc}</p>
                 </div>
-                <p className="mt-7 leading-relaxed text-foreground/90">{mv.mission.text}</p>
-              </div>
-            </Reveal>
-            <Reveal delay={120} className="h-full">
-              <div className="flex h-full flex-col rounded-3xl border border-primary/25 bg-gradient-to-br from-primary/20 to-primary/[0.05] p-9 sm:p-11">
-                <div className="flex items-center gap-4">
-                  <span className="font-mono text-sm text-[var(--silver)]">02</span>
-                  <span className="h-px w-8 bg-white/25" />
-                  <span className="eyebrow">{mv.vision.kicker}</span>
-                </div>
-                <p className="mt-7 leading-relaxed text-foreground/90">{mv.vision.text}</p>
-              </div>
-            </Reveal>
+              </Reveal>
+            ))}
           </div>
         </Section>
 
-        {/* CONTACT */}
-        <Section id="contacto">
+        {/* ===== CONTACTO (navy CTA) ===== */}
+        <Section id="contacto" tone="navy">
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
-              <div className="flex justify-center"><Eyebrow>{cta.eyebrow}</Eyebrow></div>
-              <h2 className="mt-6 text-balance text-3xl font-bold leading-tight tracking-tight sm:text-5xl">{cta.h}</h2>
-              <p className="mt-5 leading-relaxed text-muted-foreground">{cta.sub}</p>
+              <Eyebrow light>{cta.eyebrow}</Eyebrow>
+              <h2 className="mt-5 text-balance text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl">{cta.h}</h2>
+              <p className="mt-5 leading-relaxed text-white/75">{cta.sub}</p>
             </Reveal>
             <Reveal delay={120}>
               <div className="mt-9 flex flex-col items-center gap-3">
-                <a href={contact.wa} target="_blank" rel="noopener" className={cn(buttonVariants(), "h-12 gap-2 rounded-full px-8 text-[15px] font-semibold")}>
+                <a href={contact.wa} target="_blank" rel="noopener" className={cn(buttonVariants(), "h-12 gap-2 rounded-full bg-white px-8 text-[15px] font-semibold text-navy hover:bg-white/90")}>
                   <MessageCircle className="size-5" /> {cta.button}
                 </a>
-                <span className="text-sm text-muted-foreground">{cta.note}</span>
+                <span className="text-sm text-white/65">{cta.note}</span>
               </div>
             </Reveal>
           </div>
-          <div className="mt-16 grid gap-5 sm:grid-cols-3">
+          <div className="mt-16 grid gap-4 sm:grid-cols-3">
             {[
               { Ic: Phone, label: "Teléfono", value: contact.phone, href: `tel:${contact.phoneRaw}`, ext: false },
               { Ic: Mail, label: "Correo", value: contact.email, href: `mailto:${contact.email}`, ext: false },
@@ -267,22 +246,20 @@ export default function Home() {
                 <a
                   href={c.href}
                   {...(c.ext ? { target: "_blank", rel: "noopener" } : {})}
-                  className="glass group flex h-full items-center gap-4 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40"
+                  className="flex h-full items-center gap-4 rounded-2xl border border-white/12 bg-white/[0.06] p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10"
                 >
-                  <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-primary/12 text-primary">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-white/12 text-white">
                     <c.Ic className="size-5" />
                   </span>
                   <span className="min-w-0">
-                    <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">{c.label}</span>
-                    <span className="mt-1 block truncate font-semibold">{c.value}</span>
+                    <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-white/55">{c.label}</span>
+                    <span className="mt-1 block truncate font-semibold text-white">{c.value}</span>
                   </span>
                 </a>
               </Reveal>
             ))}
           </div>
         </Section>
-
-        <div className="px-5 sm:px-8"><div className="mx-auto max-w-[76rem]"><Divider /></div></div>
       </main>
       <Footer />
     </>

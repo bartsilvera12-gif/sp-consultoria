@@ -30,8 +30,8 @@ export function Header() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
         solid
-          ? "border-b border-white/10 bg-[#0a1830]/80 backdrop-blur-xl py-3"
-          : "border-b border-transparent py-5",
+          ? "border-b border-black/5 bg-white/90 py-3 text-foreground shadow-[0_1px_0_rgba(0,0,0,0.04)] backdrop-blur-xl"
+          : "border-b border-transparent py-5 text-white",
       )}
     >
       <div className="mx-auto flex max-w-[80rem] items-center justify-between gap-6 px-5 sm:px-8">
@@ -41,13 +41,18 @@ export function Header() {
             alt="SP Consultoría, Estrategia y Seguridad"
             width={78}
             height={42}
-            className="h-10 w-auto"
+            className={cn("h-10 w-auto transition", !solid && "brightness-0 invert")}
             priority
           />
           <span className="flex items-center gap-3">
             <span className="text-lg font-bold tracking-wide">SP</span>
-            <span className="hidden h-5 w-px bg-white/20 sm:block" />
-            <span className="hidden max-w-[11rem] text-[9px] font-semibold leading-tight tracking-[0.22em] text-muted-foreground sm:block">
+            <span className={cn("hidden h-5 w-px sm:block", solid ? "bg-black/15" : "bg-white/30")} />
+            <span
+              className={cn(
+                "hidden max-w-[11rem] text-[9px] font-semibold leading-tight tracking-[0.22em] sm:block",
+                solid ? "text-muted-foreground" : "text-white/70",
+              )}
+            >
               CONSULTORÍA, ESTRATEGIA Y SEGURIDAD
             </span>
           </span>
@@ -58,7 +63,7 @@ export function Header() {
             <a
               key={n.href}
               href={n.href}
-              className="group relative text-[13px] font-medium text-foreground/85 transition-colors hover:text-foreground"
+              className="group relative text-[13px] font-medium opacity-90 transition-opacity hover:opacity-100"
             >
               {n.label}
               <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-current transition-transform duration-300 group-hover:scale-x-100" />
@@ -67,13 +72,22 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href={contact.wa} target="_blank" rel="noopener" className={cn(buttonVariants({ size: "sm" }), "hidden h-9 rounded-full px-5 font-semibold sm:inline-flex")}>
+          <a
+            href={contact.wa}
+            target="_blank"
+            rel="noopener"
+            className={cn(
+              buttonVariants({ size: "sm" }),
+              "hidden h-9 rounded-full px-5 font-semibold sm:inline-flex",
+              !solid && "bg-white text-navy hover:bg-white/90",
+            )}
+          >
             Solicitar consultoría
           </a>
           <button
             aria-label="Abrir menú"
             onClick={() => setOpen(true)}
-            className="inline-flex size-10 items-center justify-center rounded-md text-foreground lg:hidden"
+            className="inline-flex size-10 items-center justify-center rounded-md lg:hidden"
           >
             <Menu className="size-6" />
           </button>
@@ -81,7 +95,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-[60] flex flex-col bg-[#0a1830] px-6 py-6 lg:hidden">
+        <div className="fixed inset-0 z-[60] flex flex-col bg-[var(--navy)] px-6 py-6 text-white lg:hidden">
           <div className="flex items-center justify-between">
             <span className="text-lg font-bold tracking-wide">SP</span>
             <button aria-label="Cerrar menú" onClick={() => setOpen(false)} className="size-10">
@@ -100,7 +114,13 @@ export function Header() {
               </a>
             ))}
           </nav>
-          <a href={contact.wa} target="_blank" rel="noopener" onClick={() => setOpen(false)} className={cn(buttonVariants(), "mt-8 h-12 rounded-full font-semibold")}>
+          <a
+            href={contact.wa}
+            target="_blank"
+            rel="noopener"
+            onClick={() => setOpen(false)}
+            className={cn(buttonVariants(), "mt-8 h-12 rounded-full bg-white font-semibold text-navy hover:bg-white/90")}
+          >
             Contactar por WhatsApp
           </a>
         </div>

@@ -36,9 +36,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="es"
-      className={`dark ${geistSans.variable} ${geistMono.variable} h-full`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col overflow-x-clip">{children}</body>
+      <body className="min-h-full flex flex-col overflow-x-clip bg-white">{children}</body>
     </html>
   );
 }
