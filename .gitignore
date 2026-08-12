@@ -1,0 +1,5 @@
+node_modules/
+sp-web/node_modules/
+sp-web/.next/
+sp-web/out/
+*.log

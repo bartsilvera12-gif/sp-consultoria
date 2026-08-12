@@ -1,0 +1,129 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+/* SP Consultoría — refined deep-navy theme (dark only) */
+:root {
+  --background: #0a1830;
+  --foreground: #e9eef8;
+  --card: #0f2143;
+  --card-foreground: #e9eef8;
+  --popover: #0f2143;
+  --popover-foreground: #e9eef8;
+  --primary: #5b8def;
+  --primary-foreground: #06122b;
+  --secondary: #16284d;
+  --secondary-foreground: #e9eef8;
+  --muted: #16284d;
+  --muted-foreground: #9fb1d0;
+  --accent: #1b2f57;
+  --accent-foreground: #ffffff;
+  --destructive: #e5484d;
+  --border: rgba(255, 255, 255, 0.09);
+  --input: rgba(255, 255, 255, 0.14);
+  --ring: #5b8def;
+  --radius: 0.8rem;
+  --silver: #c6d0e2;
+  --gold: #d8b271;
+}
+
+.dark {
+  --background: #0a1830;
+  --foreground: #e9eef8;
+  --card: #0f2143;
+  --card-foreground: #e9eef8;
+  --popover: #0f2143;
+  --popover-foreground: #e9eef8;
+  --primary: #5b8def;
+  --primary-foreground: #06122b;
+  --secondary: #16284d;
+  --secondary-foreground: #e9eef8;
+  --muted: #16284d;
+  --muted-foreground: #9fb1d0;
+  --accent: #1b2f57;
+  --accent-foreground: #ffffff;
+  --destructive: #e5484d;
+  --border: rgba(255, 255, 255, 0.09);
+  --input: rgba(255, 255, 255, 0.14);
+  --ring: #5b8def;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans scroll-smooth;
+  }
+  body {
+    @apply text-foreground antialiased;
+    background-color: var(--background);
+    background-image:
+      radial-gradient(120% 78% at 50% -12%, rgba(46, 86, 160, 0.35) 0%, rgba(46, 86, 160, 0) 60%),
+      radial-gradient(90% 60% at 100% 108%, rgba(30, 62, 128, 0.28) 0%, rgba(30, 62, 128, 0) 55%);
+    background-attachment: fixed;
+  }
+  /* subtle film grain for texture */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+  }
+  ::selection {
+    background: var(--primary);
+    color: #06122b;
+  }
+}
+
+/* utilities */
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--silver);
+}
+.text-balance {
+  text-wrap: balance;
+}
+.glass {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 24px 48px -30px rgba(0, 8, 30, 0.9);
+}
