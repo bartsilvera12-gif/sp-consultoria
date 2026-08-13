@@ -18,10 +18,26 @@ export default function Home() {
       <main className="flex-1">
         {/* ===== HERO (dark cover) ===== */}
         <section id="inicio" className="relative flex min-h-[100svh] items-center overflow-hidden px-5 pb-24 pt-32 text-white sm:px-8">
-          <div className="absolute inset-0 -z-10">
-            <Image src="/brand/hero.jpg" alt="" fill priority className="object-cover object-center" />
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0b1d12] via-[#13271a]/95 to-[#1f5a2c]/85" />
-            <div className="absolute inset-0 bg-[#0b1d12]/45" />
+          <div className="absolute inset-0 -z-10 bg-[#0b1d12]">
+            {/* degradado base */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0b1d12] via-[#12291a] to-[#1a4526]" />
+            {/* glow verde */}
+            <div className="pointer-events-none absolute -right-[20%] -top-[25%] h-[70rem] w-[70rem] rounded-full bg-[radial-gradient(circle,rgba(29,113,49,0.38),transparent_60%)]" />
+            <div className="pointer-events-none absolute -bottom-[30%] -left-[15%] h-[55rem] w-[55rem] rounded-full bg-[radial-gradient(circle,rgba(32,182,62,0.12),transparent_65%)]" />
+            {/* reticula sutil (seguridad) */}
+            <div className="pointer-events-none absolute inset-0 opacity-[0.055] [background-image:linear-gradient(rgba(255,255,255,0.7)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.7)_1px,transparent_1px)] [background-size:66px_66px]" />
+            {/* emblema difuminado de marca */}
+            <Image
+              src="/brand/logo-crest.png"
+              alt=""
+              width={920}
+              height={575}
+              className="pointer-events-none absolute right-[-6%] top-1/2 hidden w-[44rem] max-w-none -translate-y-1/2 opacity-[0.05] brightness-0 invert lg:block"
+            />
+            {/* vineta izquierda para legibilidad */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0b1d12] via-[#0b1d12]/55 to-transparent" />
+            {/* fundido inferior hacia la siguiente seccion */}
+            <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-[#0b1d12]" />
           </div>
           <div className="mx-auto w-full max-w-[74rem]">
             <Reveal>
@@ -153,12 +169,19 @@ export default function Home() {
             <Reveal>
               <SectionHeading eyebrow="Metodología de trabajo" title="¿Cómo trabajamos?" />
               <p className="mt-6 max-w-lg leading-relaxed text-muted-foreground">{method.text}</p>
-              <div className="mt-10 flex justify-start">
-                <div className="relative grid size-56 place-items-center rounded-full bg-gradient-to-br from-[#20602c] to-[var(--navy)] shadow-xl ring-1 ring-black/5 sm:size-64">
-                  <div className="pointer-events-none absolute inset-4 rounded-full border border-white/10" />
-                  <div className="pointer-events-none absolute inset-0 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]" />
-                  <Image src="/brand/logo-emblem.png" alt="SP Consultoría" width={240} height={130} className="relative h-auto w-40" />
-                </div>
+              <div className="relative mt-10 overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+                <Image
+                  src="/brand/handshake.jpg"
+                  alt="Acompañamiento profesional de SP Consultoría"
+                  width={880}
+                  height={560}
+                  className="h-60 w-full object-cover sm:h-72"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--navy)]/70 via-[var(--navy)]/10 to-transparent" />
+                <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
+                <span className="absolute bottom-4 left-5 text-sm font-semibold tracking-tight text-white/95">
+                  Confianza, método y confidencialidad
+                </span>
               </div>
             </Reveal>
             <Reveal delay={120}>
