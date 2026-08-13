@@ -20,7 +20,10 @@ export const metadata: Metadata = {
   description:
     "Firma especializada en análisis estratégico, gestión de riesgos y seguridad integral para organizaciones públicas y privadas.",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
