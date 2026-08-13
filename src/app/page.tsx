@@ -230,7 +230,15 @@ export default function Home() {
         </Section>
 
         {/* ===== CONTACTO (navy CTA) ===== */}
-        <Section id="contacto" tone="navy" divider={false}>
+        <Section
+          id="contacto"
+          tone="navy"
+          divider={false}
+          className="overflow-hidden [background-image:linear-gradient(135deg,#1f7a33_0%,#145a26_46%,#0b3016_100%)]"
+        >
+          {/* glows para dar vida */}
+          <div className="pointer-events-none absolute -left-32 -top-28 h-[38rem] w-[38rem] rounded-full bg-[radial-gradient(circle,rgba(46,196,84,0.30),transparent_65%)]" />
+          <div className="pointer-events-none absolute -bottom-32 -right-24 h-[42rem] w-[42rem] rounded-full bg-[radial-gradient(circle,rgba(32,182,62,0.22),transparent_68%)]" />
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <Eyebrow light>{cta.eyebrow}</Eyebrow>
