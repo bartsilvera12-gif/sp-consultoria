@@ -18,24 +18,14 @@ export default function Home() {
       <main className="flex-1">
         {/* ===== HERO (dark cover) ===== */}
         <section id="inicio" className="relative flex min-h-[100svh] items-center overflow-hidden px-5 pb-24 pt-32 text-white sm:px-8">
-          <div className="absolute inset-0 -z-10 bg-[#0b1d12]">
-            {/* degradado base */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0b1d12] via-[#12291a] to-[#1a4526]" />
-            {/* glow verde */}
-            <div className="pointer-events-none absolute -right-[20%] -top-[25%] h-[70rem] w-[70rem] rounded-full bg-[radial-gradient(circle,rgba(29,113,49,0.38),transparent_60%)]" />
-            <div className="pointer-events-none absolute -bottom-[30%] -left-[15%] h-[55rem] w-[55rem] rounded-full bg-[radial-gradient(circle,rgba(32,182,62,0.12),transparent_65%)]" />
-            {/* reticula sutil (seguridad) */}
-            <div className="pointer-events-none absolute inset-0 opacity-[0.055] [background-image:linear-gradient(rgba(255,255,255,0.7)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.7)_1px,transparent_1px)] [background-size:66px_66px]" />
-            {/* emblema difuminado de marca */}
-            <Image
-              src="/brand/logo-crest.png"
-              alt=""
-              width={920}
-              height={575}
-              className="pointer-events-none absolute right-[-6%] top-1/2 hidden w-[44rem] max-w-none -translate-y-1/2 opacity-[0.05] brightness-0 invert lg:block"
-            />
-            {/* vineta izquierda para legibilidad */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0b1d12] via-[#0b1d12]/55 to-transparent" />
+          <div className="absolute inset-0 -z-10 bg-[#06130c]">
+            {/* foto real: la Tierra de noche desde el espacio */}
+            <Image src="/brand/feature.jpg" alt="" fill priority className="object-cover object-center" />
+            {/* velo verde para unificar con la marca */}
+            <div className="absolute inset-0 bg-[#0c2a18]/45 mix-blend-multiply" />
+            {/* oscurecido a la izquierda para legibilidad del texto */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#06130c] via-[#06130c]/75 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#06130c]/70 via-transparent to-[#06130c]/25" />
             {/* fundido inferior hacia la siguiente seccion */}
             <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-[#0b1d12]" />
           </div>
