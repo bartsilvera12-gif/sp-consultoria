@@ -51,7 +51,7 @@ export default function Home() {
         </section>
 
         {/* ===== QUIÉNES SOMOS ===== */}
-        <Section id="nosotros" tone="white">
+        <Section id="nosotros" tone="white" divider={false}>
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <Reveal>
               <Eyebrow>Quiénes somos</Eyebrow>
@@ -217,7 +217,7 @@ export default function Home() {
         </Section>
 
         {/* ===== CONTACTO (navy CTA) ===== */}
-        <Section id="contacto" tone="navy">
+        <Section id="contacto" tone="navy" divider={false}>
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <Eyebrow light>{cta.eyebrow}</Eyebrow>

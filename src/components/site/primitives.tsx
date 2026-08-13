@@ -75,15 +75,19 @@ export function Section({
         ? "bg-[var(--navy)] text-white"
         : "bg-gradient-to-b from-white to-[#f7f9fe]";
   return (
-    <section id={id} className={cn("relative isolate scroll-mt-24 overflow-hidden px-5 sm:px-8", bg, className)}>
+    <section id={id} className={cn("relative isolate scroll-mt-24 px-5 sm:px-8", bg, className)}>
       {!isNavy && (
-        <>
-          <div className="pointer-events-none absolute -left-40 -top-24 -z-10 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(70,108,190,0.14),transparent_68%)]" />
-          <div className="pointer-events-none absolute -bottom-32 -right-44 -z-10 h-[42rem] w-[42rem] rounded-full bg-[radial-gradient(circle,rgba(29,43,88,0.09),transparent_70%)]" />
-        </>
+        <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+          <div className="absolute -left-40 -top-24 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(70,108,190,0.14),transparent_68%)]" />
+          <div className="absolute -bottom-32 -right-44 h-[42rem] w-[42rem] rounded-full bg-[radial-gradient(circle,rgba(29,43,88,0.09),transparent_70%)]" />
+        </div>
       )}
-      {divider && <div className="relative pt-16 sm:pt-20"><SectionDivider light={isNavy} /></div>}
-      <div className="relative mx-auto max-w-[74rem] pb-20 pt-16 sm:pb-24 sm:pt-20 md:pb-28">{children}</div>
+      {divider && (
+        <div className="absolute inset-x-5 top-0 z-10 -translate-y-1/2 sm:inset-x-8">
+          <SectionDivider light={isNavy} />
+        </div>
+      )}
+      <div className="relative mx-auto max-w-[74rem] py-20 sm:py-24 md:py-28">{children}</div>
     </section>
   );
 }
