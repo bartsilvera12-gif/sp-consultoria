@@ -42,3 +42,6 @@ next-env.d.ts
 
 # build zip para Hostinger
 sp-consultoria-hostinger.zip
+
+# carpeta dist para Hostinger (build local)
+/dist/
