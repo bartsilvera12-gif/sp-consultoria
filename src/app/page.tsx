@@ -272,9 +272,9 @@ export default function Home() {
                   <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-white/12 text-white">
                     <c.Ic className="size-5" />
                   </span>
-                  <span className="min-w-0">
+                  <span className="min-w-0 flex-1">
                     <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-white/55">{c.label}</span>
-                    <span className="mt-1 block truncate font-semibold text-white">{c.value}</span>
+                    <span className="mt-1 block break-words font-semibold leading-snug text-white">{c.value}</span>
                   </span>
                 </a>
               </Reveal>
