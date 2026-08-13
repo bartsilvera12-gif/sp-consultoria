@@ -26,7 +26,8 @@ export function Header() {
   }, [open]);
 
   return (
-    <header
+    <>
+      <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
         solid
@@ -93,11 +94,13 @@ export function Header() {
         </div>
       </div>
 
+    </header>
+
       {open && (
-        <div className="fixed inset-0 z-[60] flex flex-col bg-[var(--navy)] px-6 py-6 text-white lg:hidden">
+        <div className="fixed inset-0 z-[100] flex flex-col bg-[var(--navy)] px-6 py-6 text-white lg:hidden">
           <div className="flex items-center justify-between">
             <span className="text-lg font-bold tracking-wide">SP</span>
-            <button aria-label="Cerrar menú" onClick={() => setOpen(false)} className="size-10">
+            <button aria-label="Cerrar menú" onClick={() => setOpen(false)} className="inline-flex size-10 items-center justify-center">
               <X className="size-7" />
             </button>
           </div>
@@ -124,6 +127,6 @@ export function Header() {
           </a>
         </div>
       )}
-    </header>
+    </>
   );
 }
