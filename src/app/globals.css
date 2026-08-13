@@ -35,30 +35,32 @@
   --radius-2xl: calc(var(--radius) * 1.8);
 }
 
-/* SP Consultoría — light / navy corporate theme (from brochure) */
+/* SP Consultoría — light / green corporate theme (inspirado en RQM) */
 :root {
   --background: #ffffff;
-  --foreground: #141c33;
+  --foreground: #16241a;
   --card: #ffffff;
-  --card-foreground: #141c33;
+  --card-foreground: #16241a;
   --popover: #ffffff;
-  --popover-foreground: #141c33;
-  --primary: #1d2b58;
+  --popover-foreground: #16241a;
+  --primary: #1d7131;
   --primary-foreground: #ffffff;
-  --secondary: #eef1f8;
-  --secondary-foreground: #1d2b58;
-  --muted: #f4f6fb;
-  --muted-foreground: #5a6379;
-  --accent: #eef1f8;
-  --accent-foreground: #1d2b58;
+  --secondary: #ecf3ee;
+  --secondary-foreground: #1d7131;
+  --muted: #f1f7f2;
+  --muted-foreground: #566b5c;
+  --accent: #ecf3ee;
+  --accent-foreground: #1d7131;
   --destructive: #d92d20;
-  --border: #e5e9f1;
-  --input: #e5e9f1;
-  --ring: #1d2b58;
+  --border: #e1ebe4;
+  --input: #e1ebe4;
+  --ring: #1d7131;
   --radius: 0.7rem;
-  --navy: #101a3b;
-  --navy-2: #1d2b58;
-  --silver: #8b93a8;
+  --navy: #13271a;
+  --navy-2: #1d7131;
+  --silver: #8b9a90;
+  --cream: #e3dec2;
+  --accent-bright: #20b63e;
 }
 
 @layer base {

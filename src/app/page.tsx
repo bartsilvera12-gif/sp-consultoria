@@ -20,8 +20,8 @@ export default function Home() {
         <section id="inicio" className="relative flex min-h-[100svh] items-center overflow-hidden px-5 pb-24 pt-32 text-white sm:px-8">
           <div className="absolute inset-0 -z-10">
             <Image src="/brand/hero.jpg" alt="" fill priority className="object-cover object-center" />
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0c1430] via-[#101a3b]/95 to-[#16265c]/85" />
-            <div className="absolute inset-0 bg-[#0c1430]/40" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0b1d12] via-[#13271a]/95 to-[#1f5a2c]/85" />
+            <div className="absolute inset-0 bg-[#0b1d12]/45" />
           </div>
           <div className="mx-auto w-full max-w-[74rem]">
             <Reveal>
@@ -154,7 +154,7 @@ export default function Home() {
               <SectionHeading eyebrow="Metodología de trabajo" title="¿Cómo trabajamos?" />
               <p className="mt-6 max-w-lg leading-relaxed text-muted-foreground">{method.text}</p>
               <div className="mt-10 flex justify-start">
-                <div className="relative grid size-56 place-items-center rounded-full bg-gradient-to-br from-[#1a2a58] to-[var(--navy)] shadow-xl ring-1 ring-black/5 sm:size-64">
+                <div className="relative grid size-56 place-items-center rounded-full bg-gradient-to-br from-[#20602c] to-[var(--navy)] shadow-xl ring-1 ring-black/5 sm:size-64">
                   <div className="pointer-events-none absolute inset-4 rounded-full border border-white/10" />
                   <div className="pointer-events-none absolute inset-0 rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]" />
                   <Image src="/brand/logo-emblem.png" alt="SP Consultoría" width={240} height={130} className="relative h-auto w-40" />

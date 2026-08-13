@@ -70,16 +70,16 @@ export function Section({
   const isNavy = tone === "navy";
   const bg =
     tone === "muted"
-      ? "bg-gradient-to-b from-[#e9f0fb] to-[#f4f7fd]"
+      ? "bg-gradient-to-b from-[#e8f2ea] to-[#f2f8f3]"
       : isNavy
         ? "bg-[var(--navy)] text-white"
-        : "bg-gradient-to-b from-white to-[#f7f9fe]";
+        : "bg-gradient-to-b from-white to-[#f5faf6]";
   return (
     <section id={id} className={cn("relative isolate scroll-mt-24 px-5 sm:px-8", bg, className)}>
       {!isNavy && (
         <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-          <div className="absolute -left-40 -top-24 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(70,108,190,0.14),transparent_68%)]" />
-          <div className="absolute -bottom-32 -right-44 h-[42rem] w-[42rem] rounded-full bg-[radial-gradient(circle,rgba(29,43,88,0.09),transparent_70%)]" />
+          <div className="absolute -left-40 -top-24 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(29,113,49,0.13),transparent_68%)]" />
+          <div className="absolute -bottom-32 -right-44 h-[42rem] w-[42rem] rounded-full bg-[radial-gradient(circle,rgba(19,39,26,0.08),transparent_70%)]" />
         </div>
       )}
       {divider && (
