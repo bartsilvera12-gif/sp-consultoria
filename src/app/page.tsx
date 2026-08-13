@@ -142,11 +142,14 @@ export default function Home() {
                     </span>
                     <h3 className="text-lg font-bold uppercase tracking-wide text-navy">{s.title}</h3>
                   </div>
-                  <div className="mt-5 flex flex-wrap gap-2">
+                  <ul className="mt-5 space-y-2.5">
                     {s.tags.map((t) => (
-                      <span key={t} className="rounded-full bg-[var(--muted)] px-3.5 py-1.5 text-[12.5px] text-muted-foreground">{t}</span>
+                      <li key={t} className="flex items-center gap-2.5 text-[13.5px] text-muted-foreground">
+                        <span className="size-1.5 shrink-0 rounded-full bg-[var(--navy-2)]" />
+                        {t}
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </Reveal>
             ))}

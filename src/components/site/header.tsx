@@ -44,16 +44,15 @@ export function Header() {
             className="h-10 w-auto"
             priority
           />
-          <span className="flex items-center gap-3">
+          <span className="flex flex-col leading-none">
             <span className="text-lg font-bold tracking-wide">SP</span>
-            <span className={cn("hidden h-5 w-px sm:block", solid ? "bg-black/15" : "bg-white/30")} />
             <span
               className={cn(
-                "hidden max-w-[11rem] text-[9px] font-semibold leading-tight tracking-[0.22em] sm:block",
-                solid ? "text-muted-foreground" : "text-white/70",
+                "mt-1 text-[10px] font-semibold tracking-tight sm:text-[11px]",
+                solid ? "text-muted-foreground" : "text-white/75",
               )}
             >
-              CONSULTORÍA, ESTRATEGIA Y SEGURIDAD
+              Consultoría, Estrategia y Seguridad
             </span>
           </span>
         </a>

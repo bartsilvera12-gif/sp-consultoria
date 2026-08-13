@@ -12,8 +12,8 @@ export function Footer() {
             <Image src="/brand/logo-emblem.png" alt="SP" width={82} height={44} className="h-11 w-auto" />
             <span className="text-xl font-bold tracking-wide">SP</span>
           </div>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
-            Consultoría, estrategia y seguridad para organizaciones públicas y privadas.
+          <p className="mt-4 text-sm font-medium leading-relaxed text-white/80">
+            Consultoría, Estrategia y Seguridad
           </p>
           <div className="mt-5 flex flex-wrap gap-x-4 gap-y-1.5 text-[13px] tracking-wide text-white/55">
             <span>Análisis Estratégico</span>
