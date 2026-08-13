@@ -19,8 +19,8 @@ export default function Home() {
         {/* ===== HERO (dark cover) ===== */}
         <section id="inicio" className="relative flex min-h-[100svh] items-center overflow-hidden px-5 pb-24 pt-32 text-white sm:px-8">
           <div className="absolute inset-0 -z-10 bg-[#06130c]">
-            {/* foto real: la Tierra de noche desde el espacio */}
-            <Image src="/brand/feature.jpg" alt="" fill priority className="object-cover object-center" />
+            {/* foto real: centro de operaciones / sala de control */}
+            <Image src="/brand/hero-soc.jpg" alt="" fill priority className="object-cover object-center" />
             {/* velo verde para unificar con la marca */}
             <div className="absolute inset-0 bg-[#0c2a18]/45 mix-blend-multiply" />
             {/* oscurecido a la izquierda para legibilidad del texto */}
