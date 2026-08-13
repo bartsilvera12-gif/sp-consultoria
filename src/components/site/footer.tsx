@@ -46,7 +46,12 @@ export function Footer() {
       </div>
 
       <div className="mx-auto mt-14 flex max-w-[74rem] flex-col gap-3 border-t border-white/12 pt-6 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
-        <span>© {year} SP Consultoría, Estrategia y Seguridad.</span>
+        <span className="flex flex-wrap items-center gap-x-3 gap-y-1">
+          <span>© {year} SP Consultoría, Estrategia y Seguridad.</span>
+          <a href="/politica-de-privacidad/" className="text-white/55 transition-colors hover:text-white/90">
+            Política de Privacidad
+          </a>
+        </span>
         <span>
           Desarrollado por{" "}
           <a href="https://neura.com.py" target="_blank" rel="noopener" className="font-semibold text-white/85 transition-colors hover:text-white">
