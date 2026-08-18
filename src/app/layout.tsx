@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://spconsultoria.com.py"),
+  metadataBase: new URL("https://spconsultoriaestrategiayseguridad.com"),
   title: "SP Consultoría, Estrategia y Seguridad",
   description:
     "Firma especializada en análisis estratégico, gestión de riesgos y seguridad integral para organizaciones públicas y privadas.",
@@ -30,8 +30,25 @@ export const metadata: Metadata = {
     title: "SP Consultoría, Estrategia y Seguridad",
     description:
       "Análisis estratégico, gestión de riesgos y seguridad integral.",
+    url: "https://spconsultoriaestrategiayseguridad.com",
+    siteName: "SP Consultoría, Estrategia y Seguridad",
     type: "website",
     locale: "es_PY",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "SP Consultoría, Estrategia y Seguridad",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SP Consultoría, Estrategia y Seguridad",
+    description:
+      "Análisis estratégico, gestión de riesgos y seguridad integral.",
+    images: ["/og.jpg"],
   },
 };
 
