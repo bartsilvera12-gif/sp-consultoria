@@ -97,26 +97,26 @@ export default function Home() {
 
         {/* ===== VALORES ===== */}
         <Section tone="white">
-          <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:items-center lg:gap-16">
+          <div className="grid gap-10 lg:grid-cols-[1fr_1.3fr] lg:items-stretch lg:gap-12">
             <Reveal className="order-2 lg:order-1">
-              <div className="relative aspect-[3/4] max-h-[30rem] overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+              <div className="relative h-full min-h-[24rem] overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
                 <Image src="/brand/teamwork.jpg" alt="Equipo SP" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--navy)]/40 to-transparent" />
               </div>
             </Reveal>
-            <div className="order-1 lg:order-2">
+            <div className="order-1 flex flex-col justify-center lg:order-2">
               <Reveal>
                 <Eyebrow>Nuestros valores</Eyebrow>
-                <h2 className="section-title mt-4 text-3xl sm:text-4xl md:text-[2.6rem]">Lo que sostiene cada trabajo.</h2>
+                <h2 className="section-title mt-4 text-4xl sm:text-5xl md:text-[3.25rem]">Lo que sostiene cada trabajo.</h2>
               </Reveal>
-              <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              <div className="mt-9 grid gap-4 sm:grid-cols-2">
                 {values.items.map((v, i) => (
                   <Reveal key={v.title} delay={i * 50}>
-                    <div className="group flex h-full items-start gap-4 rounded-xl border border-black/5 bg-[var(--muted)] p-4 transition-all duration-300 hover:border-[var(--navy-2)]/25 hover:bg-white hover:shadow-md">
-                      <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-[var(--navy-2)] font-mono text-sm font-semibold text-white">0{i + 1}</span>
+                    <div className="group flex h-full items-start gap-4 rounded-xl border border-black/5 bg-[var(--muted)] p-5 transition-all duration-300 hover:border-[var(--navy-2)]/25 hover:bg-white hover:shadow-md">
+                      <span className="grid size-10 shrink-0 place-items-center rounded-lg bg-[var(--navy-2)] font-mono text-sm font-semibold text-white">0{i + 1}</span>
                       <div>
-                        <h3 className="text-[15px] font-bold text-navy">{v.title}</h3>
-                        <p className="mt-1 text-[13px] leading-relaxed text-muted-foreground">{v.desc}</p>
+                        <h3 className="text-base font-bold text-navy">{v.title}</h3>
+                        <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{v.desc}</p>
                       </div>
                     </div>
                   </Reveal>
@@ -158,17 +158,19 @@ export default function Home() {
 
         {/* ===== METODOLOGÍA ===== */}
         <Section id="metodologia" tone="white">
-          <div className="grid gap-14 lg:grid-cols-2 lg:gap-16">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <SectionHeading eyebrow="Metodología de trabajo" title="¿Cómo trabajamos?" className="[&_.eyebrow]:justify-center" />
+            <p className="mt-6 leading-relaxed text-muted-foreground">{method.text}</p>
+          </Reveal>
+          <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
             <Reveal>
-              <SectionHeading eyebrow="Metodología de trabajo" title="¿Cómo trabajamos?" />
-              <p className="mt-6 max-w-lg leading-relaxed text-muted-foreground">{method.text}</p>
-              <div className="relative mt-10 overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+              <div className="relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
                 <Image
                   src="/brand/handshake.jpg"
                   alt="Acompañamiento profesional de SP Consultoría"
                   width={880}
                   height={560}
-                  className="h-60 w-full object-cover sm:h-72"
+                  className="h-72 w-full object-cover sm:h-80 lg:h-[26rem]"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--navy)]/70 via-[var(--navy)]/10 to-transparent" />
                 <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
