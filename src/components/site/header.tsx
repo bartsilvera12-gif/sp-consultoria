@@ -4,10 +4,45 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
-import { nav, contact } from "@/lib/content";
+import { contact, type Lang } from "@/lib/content";
+import { useLang, useT } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
+function LangSwitch({
+  lang,
+  setLang,
+  className,
+}: {
+  lang: Lang;
+  setLang: (l: Lang) => void;
+  className?: string;
+}) {
+  return (
+    <div className={cn("flex items-center gap-1.5 text-[13px] font-semibold", className)}>
+      <button
+        type="button"
+        onClick={() => setLang("es")}
+        aria-label="Español"
+        className={cn("transition-opacity", lang === "es" ? "opacity-100" : "opacity-50 hover:opacity-90")}
+      >
+        ES
+      </button>
+      <span className="opacity-30">|</span>
+      <button
+        type="button"
+        onClick={() => setLang("en")}
+        aria-label="English"
+        className={cn("transition-opacity", lang === "en" ? "opacity-100" : "opacity-50 hover:opacity-90")}
+      >
+        EN
+      </button>
+    </div>
+  );
+}
+
 export function Header() {
+  const { nav, cta, ui } = useT();
+  const { lang, setLang } = useLang();
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -53,7 +88,7 @@ export function Header() {
                 solid ? "text-muted-foreground" : "text-white/75",
               )}
             >
-              Consultoría, Estrategia y Seguridad
+              {ui.brandTagline}
             </span>
           </span>
         </a>
@@ -71,18 +106,19 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
+          <LangSwitch lang={lang} setLang={setLang} className="hidden sm:flex" />
           <a
             href={contact.wa}
             target="_blank"
             rel="noopener"
             className={cn(
               buttonVariants({ size: "sm" }),
-              "hidden h-9 rounded-full px-5 font-semibold sm:inline-flex",
+              "hidden h-9 rounded-full px-5 font-semibold lg:inline-flex",
               !solid && "bg-white text-navy hover:bg-white/90",
             )}
           >
-            Solicitar consultoría
+            {ui.headerCta}
           </a>
           <button
             aria-label="Abrir menú"
@@ -100,9 +136,12 @@ export function Header() {
         <div className="fixed inset-0 z-[100] flex flex-col bg-[var(--navy)] px-6 py-6 text-white lg:hidden">
           <div className="flex items-center justify-between">
             <span className="text-lg font-bold tracking-wide">SP</span>
-            <button aria-label="Cerrar menú" onClick={() => setOpen(false)} className="inline-flex size-10 items-center justify-center">
-              <X className="size-7" />
-            </button>
+            <div className="flex items-center gap-5">
+              <LangSwitch lang={lang} setLang={setLang} className="text-[15px]" />
+              <button aria-label="Cerrar menú" onClick={() => setOpen(false)} className="inline-flex size-10 items-center justify-center">
+                <X className="size-7" />
+              </button>
+            </div>
           </div>
           <nav className="mt-10 flex flex-col gap-1">
             {nav.map((n) => (
@@ -123,7 +162,7 @@ export function Header() {
             onClick={() => setOpen(false)}
             className={cn(buttonVariants(), "mt-8 h-12 rounded-full bg-white font-semibold text-navy hover:bg-white/90")}
           >
-            Contactar por WhatsApp
+            {cta.button}
           </a>
         </div>
       )}

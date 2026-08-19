@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { ArrowRight, MessageCircle, Phone, Mail, MapPin } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
@@ -7,11 +9,12 @@ import { Footer } from "@/components/site/footer";
 import { Reveal } from "@/components/site/reveal";
 import { Eyebrow, Section, SectionHeading } from "@/components/site/primitives";
 import { Icon } from "@/components/site/icon";
-import {
-  hero, about, values, services, method, process, diff, mv, cta, contact,
-} from "@/lib/content";
+import { contact } from "@/lib/content";
+import { useT } from "@/lib/i18n";
 
 export default function Home() {
+  const t = useT();
+  const { hero, about, values, services, method, process, diff, mv, cta, ui } = t;
   return (
     <>
       <Header />
@@ -60,7 +63,7 @@ export default function Home() {
         <Section id="nosotros" tone="white" divider={false}>
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <Reveal>
-              <Eyebrow>Quiénes somos</Eyebrow>
+              <Eyebrow>{ui.aboutEyebrow}</Eyebrow>
               <h2 className="section-title mt-4 text-3xl sm:text-4xl md:text-5xl">{about.h1}<br /><span className="text-muted-foreground">{about.h2}</span></h2>
               <div className="mt-7 space-y-5 text-[15px] leading-relaxed text-muted-foreground sm:text-base">
                 {about.paras.map((p, i) => <p key={i}>{p}</p>)}
@@ -78,7 +81,7 @@ export default function Home() {
 
         {/* ===== MISIÓN / VISIÓN ===== */}
         <Section tone="muted">
-          <Reveal><Eyebrow>Nuestro propósito</Eyebrow></Reveal>
+          <Reveal><Eyebrow>{ui.purposeEyebrow}</Eyebrow></Reveal>
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
             <Reveal className="h-full">
               <div className="flex h-full flex-col rounded-2xl border border-black/5 bg-white p-8 shadow-sm sm:p-10">
@@ -106,8 +109,8 @@ export default function Home() {
             </Reveal>
             <div className="order-1 flex flex-col justify-center lg:order-2">
               <Reveal>
-                <Eyebrow>Nuestros valores</Eyebrow>
-                <h2 className="section-title mt-4 text-4xl sm:text-5xl md:text-[3.25rem]">Lo que sostiene cada trabajo.</h2>
+                <Eyebrow>{ui.valuesEyebrow}</Eyebrow>
+                <h2 className="section-title mt-4 text-4xl sm:text-5xl md:text-[3.25rem]">{ui.valuesTitle}</h2>
               </Reveal>
               <div className="mt-9 grid gap-4 sm:grid-cols-2">
                 {values.items.map((v, i) => (
@@ -129,7 +132,7 @@ export default function Home() {
         {/* ===== SERVICIOS ===== */}
         <Section id="servicios" tone="muted">
           <Reveal>
-            <SectionHeading eyebrow="Servicios" title={<>Cinco líneas de trabajo,<br className="hidden sm:block" /> un mismo estándar.</>} />
+            <SectionHeading eyebrow={ui.servicesEyebrow} title={<>{ui.servicesTitle1}<br className="hidden sm:block" /> {ui.servicesTitle2}</>} />
             <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">{services.sub}</p>
           </Reveal>
           <div className="mt-12 grid gap-5 md:grid-cols-2">
@@ -159,7 +162,7 @@ export default function Home() {
         {/* ===== METODOLOGÍA ===== */}
         <Section id="metodologia" tone="white">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <SectionHeading eyebrow="Metodología de trabajo" title="¿Cómo trabajamos?" className="[&_.eyebrow]:justify-center" />
+            <SectionHeading eyebrow={ui.methodEyebrow} title={ui.methodTitle} className="[&_.eyebrow]:justify-center" />
             <p className="mt-6 leading-relaxed text-muted-foreground">{method.text}</p>
           </Reveal>
           <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
@@ -175,12 +178,12 @@ export default function Home() {
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--navy)]/70 via-[var(--navy)]/10 to-transparent" />
                 <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
                 <span className="absolute bottom-4 left-5 text-sm font-semibold tracking-tight text-white/95">
-                  Confianza, método y confidencialidad
+                  {ui.methodCaption}
                 </span>
               </div>
             </Reveal>
             <Reveal delay={120}>
-              <span className="inline-flex rounded-full bg-[var(--navy-2)] px-5 py-2 text-sm font-semibold text-white">Estándares de referencia</span>
+              <span className="inline-flex rounded-full bg-[var(--navy-2)] px-5 py-2 text-sm font-semibold text-white">{ui.standardsBadge}</span>
               <div className="mt-7 space-y-4">
                 {method.standards.map((st) => (
                   <div key={st.code} className="flex items-start gap-4 border-b border-black/5 pb-4 last:border-b-0">
@@ -199,7 +202,7 @@ export default function Home() {
         {/* ===== DIFERENCIALES ===== */}
         <Section tone="muted">
           <Reveal>
-            <SectionHeading eyebrow="Por qué elegirnos" title="Nuestros diferenciales" />
+            <SectionHeading eyebrow={ui.diffEyebrow} title={ui.diffTitle} />
           </Reveal>
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {diff.items.map((d, i) => (
@@ -218,14 +221,14 @@ export default function Home() {
         {/* ===== PROCESO ===== */}
         <Section id="proceso" tone="white">
           <Reveal>
-            <SectionHeading eyebrow="Proceso de trabajo" title="Un proceso estructurado." />
+            <SectionHeading eyebrow={ui.processEyebrow} title={ui.processTitle} />
           </Reveal>
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
             {process.phases.map((p, i) => (
               <Reveal key={p.title} delay={i * 60}>
                 <div className="relative h-full overflow-hidden rounded-2xl border border-black/5 bg-[var(--muted)] p-7 sm:p-8">
                   <span className="pointer-events-none absolute -right-2 -top-4 select-none text-7xl font-extrabold text-[var(--navy-2)]/[0.06]">0{i + 1}</span>
-                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--navy-2)]">Fase 0{i + 1}</span>
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--navy-2)]">{ui.phase} 0{i + 1}</span>
                   <h3 className="mt-3 text-xl font-bold text-navy">{p.title}</h3>
                   <p className="mt-3 leading-relaxed text-muted-foreground">{p.desc}</p>
                 </div>
@@ -261,9 +264,9 @@ export default function Home() {
           </div>
           <div className="mt-16 grid gap-4 sm:grid-cols-3">
             {[
-              { Ic: Phone, label: "Teléfono", value: contact.phone, href: `tel:${contact.phoneRaw}`, ext: false },
-              { Ic: Mail, label: "Correo", value: contact.email, href: `mailto:${contact.email}`, ext: false },
-              { Ic: MapPin, label: "Ubicación", value: contact.place, href: contact.maps, ext: true },
+              { Ic: Phone, label: ui.contactPhone, value: contact.phone, href: `tel:${contact.phoneRaw}`, ext: false },
+              { Ic: Mail, label: ui.contactEmail, value: contact.email, href: `mailto:${contact.email}`, ext: false },
+              { Ic: MapPin, label: ui.contactLocation, value: contact.place, href: contact.maps, ext: true },
             ].map((c, i) => (
               <Reveal key={c.label} delay={i * 60} className="h-full">
                 <a
