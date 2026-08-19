@@ -8,8 +8,8 @@ export function Footer() {
   const { nav, feature, ui } = useT();
   const year = new Date().getFullYear();
   return (
-    <footer className="relative mt-auto bg-[#0a1a0f] px-5 py-16 text-white sm:px-8">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#20b63e]/55 to-transparent" />
+    <footer className="relative mt-auto bg-[#0a1424] px-5 py-16 text-white sm:px-8">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#778da9]/55 to-transparent" />
       <div className="mx-auto grid max-w-[74rem] gap-12 md:grid-cols-[1.5fr_1fr_1.2fr]">
         <div>
           <div className="flex items-center gap-3">

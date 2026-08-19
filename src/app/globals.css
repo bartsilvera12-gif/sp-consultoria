@@ -35,32 +35,32 @@
   --radius-2xl: calc(var(--radius) * 1.8);
 }
 
-/* SP Consultoría — light / green corporate theme (inspirado en RQM) */
+/* SP Consultoría — light / navy corporate theme */
 :root {
   --background: #ffffff;
-  --foreground: #16241a;
+  --foreground: #0d1b2a;
   --card: #ffffff;
-  --card-foreground: #16241a;
+  --card-foreground: #0d1b2a;
   --popover: #ffffff;
-  --popover-foreground: #16241a;
-  --primary: #1d7131;
+  --popover-foreground: #0d1b2a;
+  --primary: #1b263b;
   --primary-foreground: #ffffff;
-  --secondary: #ecf3ee;
-  --secondary-foreground: #1d7131;
-  --muted: #f1f7f2;
-  --muted-foreground: #566b5c;
-  --accent: #ecf3ee;
-  --accent-foreground: #1d7131;
+  --secondary: #eef1f6;
+  --secondary-foreground: #1b263b;
+  --muted: #f2f4f8;
+  --muted-foreground: #55627a;
+  --accent: #eef1f6;
+  --accent-foreground: #1b263b;
   --destructive: #d92d20;
-  --border: #e1ebe4;
-  --input: #e1ebe4;
-  --ring: #1d7131;
+  --border: #e2e6ee;
+  --input: #e2e6ee;
+  --ring: #415a77;
   --radius: 0.7rem;
-  --navy: #13271a;
-  --navy-2: #1d7131;
-  --silver: #8b9a90;
-  --cream: #e3dec2;
-  --accent-bright: #20b63e;
+  --navy: #0d1b2a;
+  --navy-2: #1b263b;
+  --silver: #778da9;
+  --slate: #415a77;
+  --light: #e0e1dd;
 }
 
 @layer base {

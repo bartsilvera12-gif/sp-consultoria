@@ -31,7 +31,7 @@ export default function PoliticaDePrivacidad() {
       <main className="flex-1">
         {/* Encabezado */}
         <section className="relative overflow-hidden bg-[var(--navy)] px-5 pb-16 pt-32 text-white sm:px-8 sm:pt-36">
-          <div className="pointer-events-none absolute -right-[15%] -top-[30%] h-[40rem] w-[40rem] rounded-full bg-[radial-gradient(circle,rgba(29,113,49,0.35),transparent_62%)]" />
+          <div className="pointer-events-none absolute -right-[15%] -top-[30%] h-[40rem] w-[40rem] rounded-full bg-[radial-gradient(circle,rgba(65,90,119,0.38),transparent_62%)]" />
           <div className="relative mx-auto max-w-[52rem]">
             <span className="inline-flex items-center gap-2.5 text-sm font-semibold text-white/80">
               <span className="h-px w-7 bg-white/50" /> Legal
@@ -44,7 +44,7 @@ export default function PoliticaDePrivacidad() {
         </section>
 
         {/* Contenido */}
-        <section className="bg-gradient-to-b from-white to-[#f5faf6] px-5 py-16 sm:px-8 sm:py-20">
+        <section className="bg-gradient-to-b from-white to-[#f6f8fb] px-5 py-16 sm:px-8 sm:py-20">
           <div className="mx-auto max-w-[52rem] space-y-10">
             <p className="leading-relaxed text-muted-foreground">
               En <strong className="text-navy">SP Consultoría, Estrategia y Seguridad</strong> valoramos y

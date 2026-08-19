@@ -21,16 +21,16 @@ export default function Home() {
       <main className="flex-1">
         {/* ===== HERO (dark cover) ===== */}
         <section id="inicio" className="relative flex min-h-[100svh] items-center overflow-hidden px-5 pb-24 pt-32 text-white sm:px-8">
-          <div className="absolute inset-0 -z-10 bg-[#06130c]">
+          <div className="absolute inset-0 -z-10 bg-[#0a1626]">
             {/* foto real: centro de operaciones / sala de control */}
             <Image src="/brand/hero-soc.jpg" alt="" fill priority className="object-cover object-center" />
-            {/* velo verde para unificar con la marca */}
-            <div className="absolute inset-0 bg-[#0c2a18]/45 mix-blend-multiply" />
+            {/* velo navy para unificar con la marca */}
+            <div className="absolute inset-0 bg-[#14233a]/50 mix-blend-multiply" />
             {/* oscurecido a la izquierda para legibilidad del texto */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#06130c] via-[#06130c]/75 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#06130c]/70 via-transparent to-[#06130c]/25" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0a1626] via-[#0a1626]/75 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a1626]/70 via-transparent to-[#0a1626]/25" />
             {/* fundido inferior hacia la siguiente seccion */}
-            <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-[#0b1d12]" />
+            <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-[#0d1b2a]" />
           </div>
           <div className="mx-auto w-full max-w-[74rem]">
             <Reveal>
@@ -242,11 +242,11 @@ export default function Home() {
           id="contacto"
           tone="navy"
           divider={false}
-          className="overflow-hidden [background-image:linear-gradient(135deg,#1f7a33_0%,#145a26_46%,#0b3016_100%)]"
+          className="overflow-hidden [background-image:linear-gradient(135deg,#415a77_0%,#1b263b_46%,#0d1b2a_100%)]"
         >
           {/* glows para dar vida */}
-          <div className="pointer-events-none absolute -left-32 -top-28 h-[38rem] w-[38rem] rounded-full bg-[radial-gradient(circle,rgba(46,196,84,0.30),transparent_65%)]" />
-          <div className="pointer-events-none absolute -bottom-32 -right-24 h-[42rem] w-[42rem] rounded-full bg-[radial-gradient(circle,rgba(32,182,62,0.22),transparent_68%)]" />
+          <div className="pointer-events-none absolute -left-32 -top-28 h-[38rem] w-[38rem] rounded-full bg-[radial-gradient(circle,rgba(119,141,169,0.28),transparent_65%)]" />
+          <div className="pointer-events-none absolute -bottom-32 -right-24 h-[42rem] w-[42rem] rounded-full bg-[radial-gradient(circle,rgba(65,90,119,0.30),transparent_68%)]" />
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <Eyebrow light>{cta.eyebrow}</Eyebrow>
