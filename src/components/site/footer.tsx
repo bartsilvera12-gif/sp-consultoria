@@ -1,9 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { Instagram } from "lucide-react";
 import { contact } from "@/lib/content";
 import { useT } from "@/lib/i18n";
+
+function InstagramIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden className={className}>
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+  );
+}
 
 function TikTokIcon({ className }: { className?: string }) {
   return (
@@ -44,7 +53,7 @@ export function Footer() {
               aria-label="Instagram de SP Consultoría"
               className="grid size-10 place-items-center rounded-full border border-white/15 text-white/75 transition-colors hover:border-white/40 hover:bg-white/10 hover:text-white"
             >
-              <Instagram className="size-5" />
+              <InstagramIcon className="size-5" />
             </a>
             <a
               href={contact.tiktok}
