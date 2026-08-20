@@ -23,7 +23,7 @@ const es = {
     line1: "Análisis riguroso.",
     line2: "Gestión preventiva.",
     line3: "Confidencialidad absoluta.",
-    sub: "SP Consultoría, Estrategia y Seguridad es una firma especializada en análisis estratégico, gestión de riesgos y seguridad integral para organizaciones públicas y privadas.",
+    sub: "SP Consultoría, Estrategia y Seguridad es una firma especializada en análisis estratégico, gestión de riesgos y seguridad integral para organizaciones públicas y privadas en Paraguay.",
     cta1: "Solicitar evaluación",
     cta2: "Conocer servicios",
   },
@@ -31,7 +31,7 @@ const es = {
     h1: "Decisiones informadas.",
     h2: "Riesgos bajo control.",
     paras: [
-      "SP Consultoría, Estrategia y Seguridad es una firma especializada en análisis estratégico, gestión de riesgos y seguridad integral, orientada al entorno organizacional público y privado.",
+      "SP Consultoría, Estrategia y Seguridad es una firma especializada en análisis estratégico, gestión de riesgos y seguridad integral, orientada al entorno organizacional público y privado en Paraguay.",
       "Nos enfocamos en la evaluación y el análisis sistemático de riesgos, el desarrollo de soluciones estratégicas y la implementación de medidas de seguridad orientadas a la toma de decisiones informadas y a la continuidad operativa.",
     ],
     quote:
@@ -149,7 +149,7 @@ const en: typeof es = {
     line1: "Rigorous analysis.",
     line2: "Preventive management.",
     line3: "Absolute confidentiality.",
-    sub: "SP Consultoría, Estrategia y Seguridad is a firm specialized in strategic analysis, risk management and integral security for public and private organizations.",
+    sub: "SP Consultoría, Estrategia y Seguridad is a firm specialized in strategic analysis, risk management and integral security for public and private organizations in Paraguay.",
     cta1: "Request an assessment",
     cta2: "Explore services",
   },
@@ -157,7 +157,7 @@ const en: typeof es = {
     h1: "Informed decisions.",
     h2: "Risks under control.",
     paras: [
-      "SP Consultoría, Estrategia y Seguridad is a firm specialized in strategic analysis, risk management and integral security, focused on public and private organizational environments.",
+      "SP Consultoría, Estrategia y Seguridad is a firm specialized in strategic analysis, risk management and integral security, focused on public and private organizational environments in Paraguay.",
       "We focus on the systematic assessment and analysis of risks, the development of strategic solutions and the implementation of security measures aimed at informed decision-making and operational continuity.",
     ],
     quote:
