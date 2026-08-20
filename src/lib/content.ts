@@ -6,6 +6,8 @@ export const contact = {
   place: "Manuel Gondra 1118, Lambaré — Paraguay",
   wa: "https://wa.me/595984868243",
   maps: "https://maps.google.com/?q=Manuel+Gondra+1118+Lambar%C3%A9+Paraguay",
+  instagram: "https://www.instagram.com/spconsultoriayseguridad",
+  tiktok: "https://www.tiktok.com/@spconsultoriayseguridad",
 };
 
 // ===================== ESPAÑOL =====================

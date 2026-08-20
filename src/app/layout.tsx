@@ -98,6 +98,10 @@ const jsonLd = {
     addressCountry: "PY",
   },
   areaServed: { "@type": "Country", name: "Paraguay" },
+  sameAs: [
+    "https://www.instagram.com/spconsultoriayseguridad",
+    "https://www.tiktok.com/@spconsultoriayseguridad",
+  ],
   knowsAbout: [
     "Consultoría de seguridad",
     "Gestión de riesgos",
