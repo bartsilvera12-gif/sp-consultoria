@@ -2,7 +2,7 @@
 export const contact = {
   phone: "+595 984 868 243",
   phoneRaw: "+595984868243",
-  email: "spconsultoria@gmail.com",
+  email: "spconsultoriayseguridad@gmail.com",
   place: "Manuel Gondra 1118, Lambaré — Paraguay",
   wa: "https://wa.me/595984868243",
   maps: "https://maps.google.com/?q=Manuel+Gondra+1118+Lambar%C3%A9+Paraguay",
