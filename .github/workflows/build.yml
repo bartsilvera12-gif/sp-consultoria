@@ -1,13 +1,16 @@
 name: Build (dist para Hostinger)
 
-# Compila el sitio en la nube (no necesitas Node en tu PC).
+# Compila el sitio en la nube (no necesitas Node en tu PC) y deja la
+# carpeta dist/ actualizada en el repositorio, lista para subir a Hostinger.
 # Se ejecuta en cada push a main y tambien manualmente desde la pestaña Actions.
-# Deja el resultado como artefacto ZIP descargable ("dist-hostinger").
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -28,9 +31,14 @@ jobs:
       - name: Build (genera dist/)
         run: npm run build
 
-      - name: Subir dist como artefacto descargable
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist-hostinger
-          path: dist
-          if-no-files-found: error
+      - name: Commitear carpeta dist/ al repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f dist
+          if git diff --staged --quiet; then
+            echo "Sin cambios en dist/, no hay nada que commitear."
+          else
+            git commit -m "chore: actualizar carpeta dist para Hostinger [skip ci]"
+            git push
+          fi

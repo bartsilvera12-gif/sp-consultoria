@@ -43,5 +43,6 @@ next-env.d.ts
 # build zip para Hostinger
 sp-consultoria-hostinger.zip
 
-# carpeta dist para Hostinger (build local)
-/dist/
+# NOTA: /dist/ se versiona a proposito: GitHub Actions compila y commitea
+# la carpeta dist/ (sitio listo para subir a Hostinger). No la ignoramos.
+# La carpeta out/ (export intermedio de Next) si se ignora, arriba.
