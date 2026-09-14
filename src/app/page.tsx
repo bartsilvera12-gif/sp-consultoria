@@ -212,13 +212,23 @@ export default function Home() {
                       key={p.name}
                       className="group flex h-full flex-col rounded-2xl border border-black/5 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--navy-2)]/20 hover:shadow-lg"
                     >
-                      <div className="flex items-start justify-between gap-3">
-                        <span className="inline-flex rounded-md bg-[var(--navy-2)]/8 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--navy-2)]">
+                      <div className="relative mb-4 grid aspect-[4/3] place-items-center overflow-hidden rounded-xl border border-black/5 bg-white">
+                        {p.img ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={`/productos/${p.img}`}
+                            alt={p.name}
+                            loading="lazy"
+                            className="h-full w-full object-contain p-2"
+                          />
+                        ) : (
+                          <CatIcon name={g.icon} className="size-12 text-[var(--silver)]/60" />
+                        )}
+                        <span className="absolute left-2 top-2 inline-flex rounded-md bg-white/90 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--navy-2)] shadow-sm ring-1 ring-black/5 backdrop-blur">
                           {p.brand}
                         </span>
-                        <CatIcon name={g.icon} className="size-4 shrink-0 text-[var(--silver)]" />
                       </div>
-                      <h4 className="mt-3 flex-1 text-[13.5px] font-semibold leading-snug text-navy">{p.name}</h4>
+                      <h4 className="flex-1 text-[13.5px] font-semibold leading-snug text-navy">{p.name}</h4>
                       <div className="mt-4 flex items-end justify-between gap-3 border-t border-black/5 pt-3.5">
                         <span className="text-[15px] font-bold text-navy">
                           <span className="text-[11px] font-semibold text-muted-foreground">{products.currency}</span> {p.price}
