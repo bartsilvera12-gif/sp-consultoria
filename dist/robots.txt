@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://spconsultoriaestrategiayseguridad.com
+Sitemap: https://spconsultoriaestrategiayseguridad.com/sitemap.xml
