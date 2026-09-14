@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { ArrowRight, MessageCircle, Phone, Mail, MapPin } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
@@ -8,13 +9,15 @@ import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { Reveal } from "@/components/site/reveal";
 import { Eyebrow, Section, SectionHeading } from "@/components/site/primitives";
-import { Icon } from "@/components/site/icon";
-import { contact } from "@/lib/content";
+import { Icon, CatIcon } from "@/components/site/icon";
+import { contact, productCatalog } from "@/lib/content";
 import { useT } from "@/lib/i18n";
 
 export default function Home() {
   const t = useT();
-  const { hero, about, values, services, method, process, diff, mv, cta, ui } = t;
+  const { hero, about, values, services, products, method, process, diff, mv, cta, ui } = t;
+  const [activeCat, setActiveCat] = useState<string>("all");
+  const shownGroups = activeCat === "all" ? productCatalog : productCatalog.filter((g) => g.id === activeCat);
   return (
     <>
       <Header />
@@ -157,6 +160,88 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+        </Section>
+
+        {/* ===== PRODUCTOS ===== */}
+        <Section id="productos" tone="white">
+          <Reveal>
+            <SectionHeading
+              eyebrow={products.eyebrow}
+              title={<>{products.title1}<br className="hidden sm:block" /> {products.title2}</>}
+            />
+            <p className="mt-5 max-w-2xl leading-relaxed text-muted-foreground">{products.sub}</p>
+          </Reveal>
+
+          {/* Filtro por categoría */}
+          <Reveal delay={80}>
+            <div className="mt-10 flex flex-wrap gap-2.5">
+              {[{ id: "all", label: products.all }, ...productCatalog.map((g) => ({ id: g.id, label: products.categories[g.id] }))].map((c) => (
+                <button
+                  key={c.id}
+                  type="button"
+                  onClick={() => setActiveCat(c.id)}
+                  className={cn(
+                    "rounded-full border px-4 py-2 text-[13px] font-semibold transition-colors",
+                    activeCat === c.id
+                      ? "border-[var(--navy)] bg-[var(--navy)] text-white"
+                      : "border-black/10 bg-white text-navy hover:border-[var(--navy-2)]/40 hover:bg-[var(--muted)]",
+                  )}
+                >
+                  {c.label}
+                </button>
+              ))}
+            </div>
+          </Reveal>
+
+          {/* Grupos de productos */}
+          <div className="mt-12 space-y-14">
+            {shownGroups.map((g) => (
+              <div key={g.id}>
+                <div className="flex items-center gap-3">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-[var(--navy-2)]/8 text-navy">
+                    <CatIcon name={g.icon} className="size-6" />
+                  </span>
+                  <h3 className="text-lg font-bold uppercase tracking-wide text-navy">{products.categories[g.id]}</h3>
+                  <span className="ml-1 rounded-full bg-[var(--muted)] px-2.5 py-0.5 text-xs font-semibold text-muted-foreground">
+                    {g.items.length}
+                  </span>
+                </div>
+                <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {g.items.map((p) => (
+                    <div
+                      key={p.name}
+                      className="group flex h-full flex-col rounded-2xl border border-black/5 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--navy-2)]/20 hover:shadow-lg"
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <span className="inline-flex rounded-md bg-[var(--navy-2)]/8 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--navy-2)]">
+                          {p.brand}
+                        </span>
+                        <CatIcon name={g.icon} className="size-4 shrink-0 text-[var(--silver)]" />
+                      </div>
+                      <h4 className="mt-3 flex-1 text-[13.5px] font-semibold leading-snug text-navy">{p.name}</h4>
+                      <div className="mt-4 flex items-end justify-between gap-3 border-t border-black/5 pt-3.5">
+                        <span className="text-[15px] font-bold text-navy">
+                          <span className="text-[11px] font-semibold text-muted-foreground">{products.currency}</span> {p.price}
+                        </span>
+                        <a
+                          href={`${contact.wa}?text=${encodeURIComponent(`${products.waPrefix} ${p.name} (${p.brand})`)}`}
+                          target="_blank"
+                          rel="noopener"
+                          className="inline-flex items-center gap-1.5 rounded-full bg-[var(--navy)] px-3.5 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-[var(--navy-2)]"
+                        >
+                          <MessageCircle className="size-3.5" /> {products.quote}
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <Reveal delay={60}>
+            <p className="mt-12 text-center text-xs leading-relaxed text-muted-foreground">{products.note}</p>
+          </Reveal>
         </Section>
 
         {/* ===== METODOLOGÍA ===== */}
