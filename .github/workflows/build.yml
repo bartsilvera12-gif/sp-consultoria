@@ -1,0 +1,36 @@
+name: Build (dist para Hostinger)
+
+# Compila el sitio en la nube (no necesitas Node en tu PC).
+# Se ejecuta en cada push a main y tambien manualmente desde la pestaña Actions.
+# Deja el resultado como artefacto ZIP descargable ("dist-hostinger").
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Build (genera dist/)
+        run: npm run build
+
+      - name: Subir dist como artefacto descargable
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-hostinger
+          path: dist
+          if-no-files-found: error
