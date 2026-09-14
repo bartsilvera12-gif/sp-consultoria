@@ -206,40 +206,41 @@ export default function Home() {
                     {g.items.length}
                   </span>
                 </div>
-                <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                   {g.items.map((p) => (
                     <div
                       key={p.name}
-                      className="group flex h-full flex-col rounded-2xl border border-black/5 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--navy-2)]/20 hover:shadow-lg"
+                      className="group flex h-full flex-col rounded-xl border border-black/5 bg-white p-2.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--navy-2)]/20 hover:shadow-lg"
                     >
-                      <div className="relative mb-4 grid aspect-[4/3] place-items-center overflow-hidden rounded-xl border border-black/5 bg-white">
+                      <div className="relative mb-2.5 grid aspect-[4/3] place-items-center overflow-hidden rounded-lg border border-black/5 bg-white">
                         {p.img ? (
                           // eslint-disable-next-line @next/next/no-img-element
                           <img
                             src={`/productos/${p.img}`}
                             alt={p.name}
                             loading="lazy"
-                            className="h-full w-full object-contain p-2"
+                            className="h-full w-full object-contain p-1.5"
                           />
                         ) : (
-                          <CatIcon name={g.icon} className="size-12 text-[var(--silver)]/60" />
+                          <CatIcon name={g.icon} className="size-9 text-[var(--silver)]/60" />
                         )}
-                        <span className="absolute left-2 top-2 inline-flex rounded-md bg-white/90 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--navy-2)] shadow-sm ring-1 ring-black/5 backdrop-blur">
+                        <span className="absolute left-1.5 top-1.5 inline-flex rounded bg-white/90 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-[0.12em] text-[var(--navy-2)] shadow-sm ring-1 ring-black/5">
                           {p.brand}
                         </span>
                       </div>
-                      <h4 className="flex-1 text-[13.5px] font-semibold leading-snug text-navy">{p.name}</h4>
-                      <div className="mt-4 flex items-end justify-between gap-3 border-t border-black/5 pt-3.5">
-                        <span className="text-[15px] font-bold text-navy">
-                          <span className="text-[11px] font-semibold text-muted-foreground">{products.currency}</span> {p.price}
+                      <h4 className="line-clamp-2 h-[2.1rem] text-[11.5px] font-semibold leading-[1.05rem] text-navy">{p.name}</h4>
+                      <div className="mt-2 flex items-center justify-between gap-2 border-t border-black/5 pt-2">
+                        <span className="text-[12.5px] font-bold text-navy">
+                          <span className="text-[9px] font-semibold text-muted-foreground">{products.currency}</span> {p.price}
                         </span>
                         <a
                           href={`${contact.wa}?text=${encodeURIComponent(`${products.waPrefix} ${p.name} (${p.brand})`)}`}
                           target="_blank"
                           rel="noopener"
-                          className="inline-flex items-center gap-1.5 rounded-full bg-[var(--navy)] px-3.5 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-[var(--navy-2)]"
+                          aria-label={`${products.quote}: ${p.name}`}
+                          className="inline-flex items-center gap-1 rounded-full bg-[var(--navy)] px-2.5 py-1 text-[10.5px] font-semibold text-white transition-colors hover:bg-[var(--navy-2)]"
                         >
-                          <MessageCircle className="size-3.5" /> {products.quote}
+                          <MessageCircle className="size-3" /> {products.quote}
                         </a>
                       </div>
                     </div>
