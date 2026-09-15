@@ -240,6 +240,55 @@ export default function Home() {
           </div>
         </Section>
 
+        {/* ===== CONTACTO (navy CTA) ===== */}
+        <Section
+          id="contacto"
+          tone="navy"
+          divider={false}
+          className="overflow-hidden [background-image:linear-gradient(135deg,#415a77_0%,#1b263b_46%,#0d1b2a_100%)]"
+        >
+          {/* glows para dar vida */}
+          <div className="pointer-events-none absolute -left-32 -top-28 h-[38rem] w-[38rem] rounded-full bg-[radial-gradient(circle,rgba(119,141,169,0.28),transparent_65%)]" />
+          <div className="pointer-events-none absolute -bottom-32 -right-24 h-[42rem] w-[42rem] rounded-full bg-[radial-gradient(circle,rgba(65,90,119,0.30),transparent_68%)]" />
+          <div className="mx-auto max-w-2xl text-center">
+            <Reveal>
+              <Eyebrow light>{cta.eyebrow}</Eyebrow>
+              <h2 className="mt-5 text-balance text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl">{cta.h}</h2>
+              <p className="mt-5 leading-relaxed text-white/75">{cta.sub}</p>
+            </Reveal>
+            <Reveal delay={120}>
+              <div className="mt-9 flex flex-col items-center gap-3">
+                <a href={contact.wa} target="_blank" rel="noopener" className={cn(buttonVariants(), "h-12 gap-2 rounded-full bg-white px-8 text-[15px] font-semibold text-navy hover:bg-white/90")}>
+                  <MessageCircle className="size-5" /> {cta.button}
+                </a>
+                <span className="text-sm text-white/65">{cta.note}</span>
+              </div>
+            </Reveal>
+          </div>
+          <div className="mt-16 grid gap-4 sm:grid-cols-3">
+            {[
+              { Ic: Phone, label: ui.contactPhone, value: contact.phone, href: `tel:${contact.phoneRaw}`, ext: false },
+              { Ic: Mail, label: ui.contactEmail, value: contact.email, href: `mailto:${contact.email}`, ext: false },
+              { Ic: MapPin, label: ui.contactLocation, value: contact.place, href: contact.maps, ext: true },
+            ].map((c, i) => (
+              <Reveal key={c.label} delay={i * 60} className="h-full">
+                <a
+                  href={c.href}
+                  {...(c.ext ? { target: "_blank", rel: "noopener" } : {})}
+                  className="flex h-full items-center gap-4 rounded-2xl border border-white/12 bg-white/[0.06] p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10"
+                >
+                  <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-white/12 text-white">
+                    <c.Ic className="size-5" />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-white/55">{c.label}</span>
+                    <span className="mt-1 block break-words font-semibold leading-snug text-white">{c.value}</span>
+                  </span>
+                </a>
+              </Reveal>
+            ))}
+          </div>
+        </Section>
         {/* ===== PRODUCTOS ===== */}
         <Section id="productos" tone="muted">
           <Reveal>
@@ -333,55 +382,6 @@ export default function Home() {
           </Reveal>
         </Section>
 
-        {/* ===== CONTACTO (navy CTA) ===== */}
-        <Section
-          id="contacto"
-          tone="navy"
-          divider={false}
-          className="overflow-hidden [background-image:linear-gradient(135deg,#415a77_0%,#1b263b_46%,#0d1b2a_100%)]"
-        >
-          {/* glows para dar vida */}
-          <div className="pointer-events-none absolute -left-32 -top-28 h-[38rem] w-[38rem] rounded-full bg-[radial-gradient(circle,rgba(119,141,169,0.28),transparent_65%)]" />
-          <div className="pointer-events-none absolute -bottom-32 -right-24 h-[42rem] w-[42rem] rounded-full bg-[radial-gradient(circle,rgba(65,90,119,0.30),transparent_68%)]" />
-          <div className="mx-auto max-w-2xl text-center">
-            <Reveal>
-              <Eyebrow light>{cta.eyebrow}</Eyebrow>
-              <h2 className="mt-5 text-balance text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl">{cta.h}</h2>
-              <p className="mt-5 leading-relaxed text-white/75">{cta.sub}</p>
-            </Reveal>
-            <Reveal delay={120}>
-              <div className="mt-9 flex flex-col items-center gap-3">
-                <a href={contact.wa} target="_blank" rel="noopener" className={cn(buttonVariants(), "h-12 gap-2 rounded-full bg-white px-8 text-[15px] font-semibold text-navy hover:bg-white/90")}>
-                  <MessageCircle className="size-5" /> {cta.button}
-                </a>
-                <span className="text-sm text-white/65">{cta.note}</span>
-              </div>
-            </Reveal>
-          </div>
-          <div className="mt-16 grid gap-4 sm:grid-cols-3">
-            {[
-              { Ic: Phone, label: ui.contactPhone, value: contact.phone, href: `tel:${contact.phoneRaw}`, ext: false },
-              { Ic: Mail, label: ui.contactEmail, value: contact.email, href: `mailto:${contact.email}`, ext: false },
-              { Ic: MapPin, label: ui.contactLocation, value: contact.place, href: contact.maps, ext: true },
-            ].map((c, i) => (
-              <Reveal key={c.label} delay={i * 60} className="h-full">
-                <a
-                  href={c.href}
-                  {...(c.ext ? { target: "_blank", rel: "noopener" } : {})}
-                  className="flex h-full items-center gap-4 rounded-2xl border border-white/12 bg-white/[0.06] p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10"
-                >
-                  <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-white/12 text-white">
-                    <c.Ic className="size-5" />
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-white/55">{c.label}</span>
-                    <span className="mt-1 block break-words font-semibold leading-snug text-white">{c.value}</span>
-                  </span>
-                </a>
-              </Reveal>
-            ))}
-          </div>
-        </Section>
       </main>
       <Footer />
     </>

@@ -18,8 +18,8 @@ const es = {
     { label: "Servicios", href: "#servicios" },
     { label: "Metodología", href: "#metodologia" },
     { label: "Proceso", href: "#proceso" },
-    { label: "Productos", href: "#productos" },
     { label: "Contacto", href: "#contacto" },
+    { label: "Productos", href: "#productos" },
   ],
   hero: {
     eyebrow: "Estrategia bajo control",
@@ -165,8 +165,8 @@ const en: typeof es = {
     { label: "Services", href: "#servicios" },
     { label: "Methodology", href: "#metodologia" },
     { label: "Process", href: "#proceso" },
-    { label: "Products", href: "#productos" },
     { label: "Contact", href: "#contacto" },
+    { label: "Products", href: "#productos" },
   ],
   hero: {
     eyebrow: "Strategy under control",
