@@ -45,6 +45,7 @@ export const metadata: Metadata = {
     "Paraguay",
   ],
   alternates: { canonical: "/" },
+  verification: { google: "4_7UH1IlGzxdKhhlhhKYXAtsmewJXZEI-_vGrnLuPCo" },
   robots: {
     index: true,
     follow: true,

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Política de Privacidad — SP Consultoría, Estrategia y Seguridad",
   description:
     "Política de privacidad y tratamiento de datos personales de SP Consultoría, Estrategia y Seguridad.",
+  alternates: { canonical: "/politica-de-privacidad/" },
   robots: { index: false, follow: false },
 };
 
