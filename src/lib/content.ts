@@ -16,9 +16,9 @@ const es = {
     { label: "Inicio", href: "#inicio" },
     { label: "Nosotros", href: "#nosotros" },
     { label: "Servicios", href: "#servicios" },
-    { label: "Productos", href: "#productos" },
     { label: "Metodología", href: "#metodologia" },
     { label: "Proceso", href: "#proceso" },
+    { label: "Productos", href: "#productos" },
     { label: "Contacto", href: "#contacto" },
   ],
   hero: {
@@ -163,9 +163,9 @@ const en: typeof es = {
     { label: "Home", href: "#inicio" },
     { label: "About", href: "#nosotros" },
     { label: "Services", href: "#servicios" },
-    { label: "Products", href: "#productos" },
     { label: "Methodology", href: "#metodologia" },
     { label: "Process", href: "#proceso" },
+    { label: "Products", href: "#productos" },
     { label: "Contact", href: "#contacto" },
   ],
   hero: {

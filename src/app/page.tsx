@@ -162,8 +162,86 @@ export default function Home() {
           </div>
         </Section>
 
+        {/* ===== METODOLOGÍA ===== */}
+        <Section id="metodologia" tone="white">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <SectionHeading eyebrow={ui.methodEyebrow} title={ui.methodTitle} className="[&_.eyebrow]:justify-center" />
+            <p className="mt-6 leading-relaxed text-muted-foreground">{method.text}</p>
+          </Reveal>
+          <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+            <Reveal>
+              <div className="relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+                <Image
+                  src="/brand/handshake.jpg"
+                  alt="Acompañamiento profesional de SP Consultoría"
+                  width={880}
+                  height={560}
+                  className="h-72 w-full object-cover sm:h-80 lg:h-[26rem]"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--navy)]/70 via-[var(--navy)]/10 to-transparent" />
+                <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
+                <span className="absolute bottom-4 left-5 text-sm font-semibold tracking-tight text-white/95">
+                  {ui.methodCaption}
+                </span>
+              </div>
+            </Reveal>
+            <Reveal delay={120}>
+              <span className="inline-flex rounded-full bg-[var(--navy-2)] px-5 py-2 text-sm font-semibold text-white">{ui.standardsBadge}</span>
+              <div className="mt-7 space-y-4">
+                {method.standards.map((st) => (
+                  <div key={st.code} className="flex items-start gap-4 border-b border-black/5 pb-4 last:border-b-0">
+                    <span className="mt-1.5 size-2 shrink-0 rounded-full bg-[var(--navy-2)]" />
+                    <div>
+                      <span className="font-bold text-navy">{st.code}</span>
+                      <span className="text-muted-foreground"> — {st.name}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </Section>
+
+        {/* ===== DIFERENCIALES ===== */}
+        <Section tone="muted">
+          <Reveal>
+            <SectionHeading eyebrow={ui.diffEyebrow} title={ui.diffTitle} />
+          </Reveal>
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {diff.items.map((d, i) => (
+              <Reveal key={d.title} delay={i * 50}>
+                <div className="group flex h-full items-center gap-4 rounded-2xl border border-black/5 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-[var(--navy-2)]/8 text-navy transition-colors group-hover:bg-[var(--navy-2)] group-hover:text-white">
+                    <Icon name={d.icon} className="size-5" />
+                  </span>
+                  <h3 className="text-[15px] font-bold text-navy">{d.title}</h3>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Section>
+
+        {/* ===== PROCESO ===== */}
+        <Section id="proceso" tone="white">
+          <Reveal>
+            <SectionHeading eyebrow={ui.processEyebrow} title={ui.processTitle} />
+          </Reveal>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2">
+            {process.phases.map((p, i) => (
+              <Reveal key={p.title} delay={i * 60}>
+                <div className="relative h-full overflow-hidden rounded-2xl border border-black/5 bg-[var(--muted)] p-7 sm:p-8">
+                  <span className="pointer-events-none absolute -right-2 -top-4 select-none text-7xl font-extrabold text-[var(--navy-2)]/[0.06]">0{i + 1}</span>
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--navy-2)]">{ui.phase} 0{i + 1}</span>
+                  <h3 className="mt-3 text-xl font-bold text-navy">{p.title}</h3>
+                  <p className="mt-3 leading-relaxed text-muted-foreground">{p.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Section>
+
         {/* ===== PRODUCTOS ===== */}
-        <Section id="productos" tone="white">
+        <Section id="productos" tone="muted">
           <Reveal>
             <SectionHeading
               eyebrow={products.eyebrow}
@@ -253,84 +331,6 @@ export default function Home() {
           <Reveal delay={60}>
             <p className="mt-12 text-center text-xs leading-relaxed text-muted-foreground">{products.note}</p>
           </Reveal>
-        </Section>
-
-        {/* ===== METODOLOGÍA ===== */}
-        <Section id="metodologia" tone="white">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <SectionHeading eyebrow={ui.methodEyebrow} title={ui.methodTitle} className="[&_.eyebrow]:justify-center" />
-            <p className="mt-6 leading-relaxed text-muted-foreground">{method.text}</p>
-          </Reveal>
-          <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
-            <Reveal>
-              <div className="relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
-                <Image
-                  src="/brand/handshake.jpg"
-                  alt="Acompañamiento profesional de SP Consultoría"
-                  width={880}
-                  height={560}
-                  className="h-72 w-full object-cover sm:h-80 lg:h-[26rem]"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--navy)]/70 via-[var(--navy)]/10 to-transparent" />
-                <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
-                <span className="absolute bottom-4 left-5 text-sm font-semibold tracking-tight text-white/95">
-                  {ui.methodCaption}
-                </span>
-              </div>
-            </Reveal>
-            <Reveal delay={120}>
-              <span className="inline-flex rounded-full bg-[var(--navy-2)] px-5 py-2 text-sm font-semibold text-white">{ui.standardsBadge}</span>
-              <div className="mt-7 space-y-4">
-                {method.standards.map((st) => (
-                  <div key={st.code} className="flex items-start gap-4 border-b border-black/5 pb-4 last:border-b-0">
-                    <span className="mt-1.5 size-2 shrink-0 rounded-full bg-[var(--navy-2)]" />
-                    <div>
-                      <span className="font-bold text-navy">{st.code}</span>
-                      <span className="text-muted-foreground"> — {st.name}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-        </Section>
-
-        {/* ===== DIFERENCIALES ===== */}
-        <Section tone="muted">
-          <Reveal>
-            <SectionHeading eyebrow={ui.diffEyebrow} title={ui.diffTitle} />
-          </Reveal>
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {diff.items.map((d, i) => (
-              <Reveal key={d.title} delay={i * 50}>
-                <div className="group flex h-full items-center gap-4 rounded-2xl border border-black/5 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                  <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-[var(--navy-2)]/8 text-navy transition-colors group-hover:bg-[var(--navy-2)] group-hover:text-white">
-                    <Icon name={d.icon} className="size-5" />
-                  </span>
-                  <h3 className="text-[15px] font-bold text-navy">{d.title}</h3>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </Section>
-
-        {/* ===== PROCESO ===== */}
-        <Section id="proceso" tone="white">
-          <Reveal>
-            <SectionHeading eyebrow={ui.processEyebrow} title={ui.processTitle} />
-          </Reveal>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2">
-            {process.phases.map((p, i) => (
-              <Reveal key={p.title} delay={i * 60}>
-                <div className="relative h-full overflow-hidden rounded-2xl border border-black/5 bg-[var(--muted)] p-7 sm:p-8">
-                  <span className="pointer-events-none absolute -right-2 -top-4 select-none text-7xl font-extrabold text-[var(--navy-2)]/[0.06]">0{i + 1}</span>
-                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--navy-2)]">{ui.phase} 0{i + 1}</span>
-                  <h3 className="mt-3 text-xl font-bold text-navy">{p.title}</h3>
-                  <p className="mt-3 leading-relaxed text-muted-foreground">{p.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </Section>
 
         {/* ===== CONTACTO (navy CTA) ===== */}
