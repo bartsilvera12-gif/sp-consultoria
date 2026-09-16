@@ -60,77 +60,85 @@ export function Header() {
     };
   }, [open]);
 
+  const productsLabel = lang === "es" ? "Productos" : "Products";
+
   return (
     <>
       <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        solid
-          ? "border-b border-black/5 bg-white/90 py-3 text-foreground shadow-[0_1px_0_rgba(0,0,0,0.04)] backdrop-blur-xl"
-          : "border-b border-transparent py-5 text-white",
-      )}
-    >
-      <div className="mx-auto flex max-w-[80rem] items-center justify-between gap-6 px-5 sm:px-8">
-        <a href="#inicio" className="flex items-center gap-3">
-          <Image
-            src="/brand/logo-emblem.png"
-            alt="SP Consultoría, Estrategia y Seguridad"
-            width={78}
-            height={42}
-            className="h-10 w-auto"
-            priority
-          />
-          <span className="flex flex-col leading-none">
-            <span className="text-lg font-bold tracking-wide">SP</span>
-            <span
-              className={cn(
-                "mt-1 text-[10px] font-semibold tracking-tight sm:text-[11px]",
-                solid ? "text-muted-foreground" : "text-white/75",
-              )}
-            >
-              {ui.brandTagline}
+        className={cn(
+          "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+          solid
+            ? "border-b border-black/5 bg-white/90 py-3 text-foreground shadow-[0_1px_0_rgba(0,0,0,0.04)] backdrop-blur-xl"
+            : "border-b border-transparent py-5 text-white",
+        )}
+      >
+        <div className="mx-auto flex max-w-[80rem] items-center justify-between gap-6 px-5 sm:px-8">
+          <a href="#inicio" className="flex items-center gap-3">
+            <Image
+              src="/brand/logo-emblem.png"
+              alt="SP Consultoría, Estrategia y Seguridad"
+              width={78}
+              height={42}
+              className="h-10 w-auto"
+              priority
+            />
+            <span className="flex flex-col leading-none">
+              <span className="text-lg font-bold tracking-wide">SP</span>
+              <span
+                className={cn(
+                  "mt-1 text-[10px] font-semibold tracking-tight sm:text-[11px]",
+                  solid ? "text-muted-foreground" : "text-white/75",
+                )}
+              >
+                {ui.brandTagline}
+              </span>
             </span>
-          </span>
-        </a>
+          </a>
 
-        <nav className="hidden items-center gap-8 lg:flex">
-          {nav.map((n) => (
+          <nav className="hidden items-center gap-8 lg:flex">
+            {nav.map((n) => (
+              <a
+                key={n.href}
+                href={n.href}
+                className="group relative text-[13px] font-medium opacity-90 transition-opacity hover:opacity-100"
+              >
+                {n.label}
+                <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-current transition-transform duration-300 group-hover:scale-x-100" />
+              </a>
+            ))}
             <a
-              key={n.href}
-              href={n.href}
+              href="/productos"
               className="group relative text-[13px] font-medium opacity-90 transition-opacity hover:opacity-100"
             >
-              {n.label}
+              {productsLabel}
               <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-current transition-transform duration-300 group-hover:scale-x-100" />
             </a>
-          ))}
-        </nav>
+          </nav>
 
-        <div className="flex items-center gap-4">
-          <LangSwitch lang={lang} setLang={setLang} className="hidden sm:flex" />
-          <a
-            href={contact.wa}
-            target="_blank"
-            rel="noopener"
-            className={cn(
-              buttonVariants({ size: "sm" }),
-              "hidden h-9 rounded-full px-5 font-semibold lg:inline-flex",
-              !solid && "bg-white text-navy hover:bg-white/90",
-            )}
-          >
-            {ui.headerCta}
-          </a>
-          <button
-            aria-label="Abrir menú"
-            onClick={() => setOpen(true)}
-            className="inline-flex size-10 items-center justify-center rounded-md lg:hidden"
-          >
-            <Menu className="size-6" />
-          </button>
+          <div className="flex items-center gap-4">
+            <LangSwitch lang={lang} setLang={setLang} className="hidden sm:flex" />
+            <a
+              href={contact.wa}
+              target="_blank"
+              rel="noopener"
+              className={cn(
+                buttonVariants({ size: "sm" }),
+                "hidden h-9 rounded-full px-5 font-semibold lg:inline-flex",
+                !solid && "bg-white text-navy hover:bg-white/90",
+              )}
+            >
+              {ui.headerCta}
+            </a>
+            <button
+              aria-label="Abrir menú"
+              onClick={() => setOpen(true)}
+              className="inline-flex size-10 items-center justify-center rounded-md lg:hidden"
+            >
+              <Menu className="size-6" />
+            </button>
+          </div>
         </div>
-      </div>
-
-    </header>
+      </header>
 
       {open && (
         <div className="fixed inset-0 z-[100] flex flex-col bg-[var(--navy)] px-6 py-6 text-white lg:hidden">
@@ -154,6 +162,13 @@ export function Header() {
                 {n.label}
               </a>
             ))}
+            <a
+              href="/productos"
+              onClick={() => setOpen(false)}
+              className="border-b border-white/10 py-4 text-2xl font-semibold tracking-tight"
+            >
+              {productsLabel}
+            </a>
           </nav>
           <a
             href={contact.wa}

@@ -7,6 +7,7 @@ const base = "https://spconsultoriaestrategiayseguridad.com";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: `${base}/`, changeFrequency: "monthly", priority: 1 },
+    { url: `${base}/productos/`, changeFrequency: "weekly", priority: 0.8 },
     { url: `${base}/politica-de-privacidad/`, changeFrequency: "yearly", priority: 0.2 },
   ];
 }
