@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { ArrowRight, MessageCircle, Phone, Mail, MapPin } from "lucide-react";
+import { ArrowRight, MessageCircle, Phone, Mail, MapPin, X } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/site/header";
@@ -11,14 +11,25 @@ import { Reveal } from "@/components/site/reveal";
 import { Eyebrow, Section, SectionHeading } from "@/components/site/primitives";
 import { Icon, CatIcon } from "@/components/site/icon";
 import { useT } from "@/lib/i18n";
-import { useSiteData } from "@/lib/site-data";
+import { useSiteData, type CatalogItem } from "@/lib/site-data";
 
 export default function Home() {
   const t = useT();
   const { contact, catalog } = useSiteData();
   const { hero, about, values, services, products, method, process, diff, mv, cta, ui } = t;
   const [activeCat, setActiveCat] = useState<string>("all");
+  const [selected, setSelected] = useState<{ item: CatalogItem; icon: string } | null>(null);
   const shownGroups = activeCat === "all" ? catalog : catalog.filter((g) => g.id === activeCat);
+
+  // Cerrar el detalle con Esc y bloquear el scroll del fondo.
+  useEffect(() => {
+    if (!selected) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setSelected(null); };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.removeEventListener("keydown", onKey); document.body.style.overflow = prev; };
+  }, [selected]);
   return (
     <>
       <Header />
@@ -338,7 +349,11 @@ export default function Home() {
                   {g.items.map((p) => (
                     <div
                       key={p.name}
-                      className="group flex h-full flex-col rounded-xl border border-black/5 bg-white p-2.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--navy-2)]/20 hover:shadow-lg"
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => setSelected({ item: p, icon: g.icon })}
+                      onKeyDown={(e) => { if (e.key === "Enter") setSelected({ item: p, icon: g.icon }); }}
+                      className="group flex h-full cursor-pointer flex-col rounded-xl border border-black/5 bg-white p-2.5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[var(--navy-2)]/20 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--navy-2)]/40"
                     >
                       <div className="relative mb-2.5 grid aspect-[4/3] place-items-center overflow-hidden rounded-lg border border-black/5 bg-white">
                         {p.img ? (
@@ -369,6 +384,7 @@ export default function Home() {
                           href={`${contact.wa}?text=${encodeURIComponent(`${products.waPrefix} ${p.name} (${p.brand})`)}`}
                           target="_blank"
                           rel="noopener"
+                          onClick={(e) => e.stopPropagation()}
                           aria-label={`${products.quote}: ${p.name}`}
                           className="inline-flex items-center gap-1 rounded-full bg-[var(--navy)] px-2.5 py-1 text-[10.5px] font-semibold text-white transition-colors hover:bg-[var(--navy-2)]"
                         >
@@ -389,6 +405,72 @@ export default function Home() {
 
       </main>
       <Footer />
+
+      {/* ===== DETALLE DE PRODUCTO (modal) ===== */}
+      {selected && (
+        <div
+          className="fixed inset-0 z-[120] flex items-end justify-center sm:items-center sm:p-4"
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setSelected(null)}
+        >
+          <div className="absolute inset-0 bg-[#0a1626]/70 backdrop-blur-sm" />
+          <div
+            className="relative max-h-[92vh] w-full max-w-3xl overflow-y-auto rounded-t-2xl bg-white shadow-2xl sm:rounded-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              aria-label="Cerrar"
+              onClick={() => setSelected(null)}
+              className="absolute right-3 top-3 z-10 grid size-9 place-items-center rounded-full bg-white/90 text-navy shadow ring-1 ring-black/5 transition-colors hover:bg-white"
+            >
+              <X className="size-5" />
+            </button>
+            <div className="grid sm:grid-cols-2">
+              {/* Imagen grande */}
+              <div className="relative grid aspect-square place-items-center border-b border-black/5 bg-[#f3f5f9] p-6 sm:border-b-0 sm:border-r">
+                {selected.item.img ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={selected.item.img} alt={selected.item.name} className="max-h-full max-w-full object-contain" />
+                ) : (
+                  <CatIcon name={selected.icon} className="size-24 text-[var(--silver)]/60" />
+                )}
+                <span className="absolute left-4 top-4 inline-flex rounded bg-white/90 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--navy-2)] shadow-sm ring-1 ring-black/5">
+                  {selected.item.brand}
+                </span>
+              </div>
+              {/* Datos */}
+              <div className="flex flex-col p-6 sm:p-7">
+                <h3 className="text-lg font-bold leading-snug text-navy sm:text-xl">{selected.item.name}</h3>
+                {selected.item.model && (
+                  <p className="mt-1.5 text-[13px] text-muted-foreground">Modelo: <span className="font-semibold text-navy/80">{selected.item.model}</span></p>
+                )}
+                <div className="mt-4">
+                  {selected.item.showPrice && selected.item.price ? (
+                    <span className="text-2xl font-extrabold text-navy">
+                      <span className="text-sm font-semibold text-muted-foreground">{products.currency}</span> {selected.item.price}
+                    </span>
+                  ) : (
+                    <span className="inline-flex rounded-full bg-[var(--muted)] px-3 py-1 text-sm font-semibold text-muted-foreground">{products.quote}</span>
+                  )}
+                </div>
+                {selected.item.description && (
+                  <p className="mt-4 whitespace-pre-line text-[14px] leading-relaxed text-muted-foreground">{selected.item.description}</p>
+                )}
+                <a
+                  href={`${contact.wa}?text=${encodeURIComponent(`${products.waPrefix} ${selected.item.name} (${selected.item.brand})`)}`}
+                  target="_blank"
+                  rel="noopener"
+                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-[var(--navy)] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--navy-2)]"
+                >
+                  <MessageCircle className="size-4" /> {products.quote}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

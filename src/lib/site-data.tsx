@@ -11,7 +11,7 @@ import {
 } from "@/lib/content";
 import { fetchPublicData, type PublicData } from "@/lib/supabase/public-queries";
 
-export type CatalogItem = { name: string; brand: string; price: string; showPrice: boolean; img?: string };
+export type CatalogItem = { name: string; brand: string; price: string; showPrice: boolean; img?: string; description?: string; code?: string; model?: string };
 export type CatalogGroup = { id: string; icon: string; items: CatalogItem[] };
 export type Contact = typeof fallbackContact;
 
@@ -185,6 +185,9 @@ function buildCatalog(data: PublicData): CatalogGroup[] {
         price: p.show_price && p.sale_price != null ? money(Number(p.sale_price)) : "",
         showPrice: Boolean(p.show_price) && p.sale_price != null,
         img: p.image_url || undefined,
+        description: p.description_es || p.description_en || undefined,
+        code: p.code || undefined,
+        model: p.model || undefined,
       })),
   }));
   const withItems = groups.filter((g) => g.items.length);

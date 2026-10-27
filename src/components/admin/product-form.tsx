@@ -199,10 +199,7 @@ export function ProductForm({ productId }: { productId?: string }) {
                 {brands.map((b) => <option key={b.id} value={b.id}>{b.name}</option>)}
               </Select>
             </Field>
-            <div className="grid grid-cols-2 gap-4">
-              <Field label="Código"><TextInput value={p.code ?? ""} onChange={(e) => setP({ ...p, code: e.target.value })} /></Field>
-              <Field label="Modelo"><TextInput value={p.model ?? ""} onChange={(e) => setP({ ...p, model: e.target.value })} /></Field>
-            </div>
+            <Field label="Modelo"><TextInput value={p.model ?? ""} onChange={(e) => setP({ ...p, model: e.target.value })} /></Field>
             <Field label="Slug" hint="URL" help="Se genera solo desde el nombre.">
               <TextInput value={p.slug ?? ""} onChange={(e) => { setSlugTouched(true); setP({ ...p, slug: e.target.value }); }} />
             </Field>
