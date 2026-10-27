@@ -20,23 +20,25 @@ const NAV: NavGroup[] = [
       { label: "Marcas", href: "/admin/brands", icon: "brand" },
     ],
   },
-  {
-    title: "Contenido del sitio",
-    items: [
-      { label: "Secciones", href: "/admin/content", icon: "doc" },
-      { label: "Servicios", href: "/admin/services", icon: "wrench" },
-      { label: "Navegación", href: "/admin/navigation", icon: "nav" },
-      { label: "Páginas", href: "/admin/pages", icon: "page" },
-      { label: "Multimedia", href: "/admin/media", icon: "image" },
-    ],
-  },
-  {
-    title: "Sistema",
-    items: [
-      { label: "Configuración", href: "/admin/settings", icon: "gear" },
-      { label: "Administradores", href: "/admin/admins", icon: "users", superadmin: true },
-    ],
-  },
+  // Secciones ocultas a pedido del cliente (las páginas siguen existiendo por URL).
+  // Para volver a mostrarlas, descomentar los grupos de abajo.
+  // {
+  //   title: "Contenido del sitio",
+  //   items: [
+  //     { label: "Secciones", href: "/admin/content", icon: "doc" },
+  //     { label: "Servicios", href: "/admin/services", icon: "wrench" },
+  //     { label: "Navegación", href: "/admin/navigation", icon: "nav" },
+  //     { label: "Páginas", href: "/admin/pages", icon: "page" },
+  //     { label: "Multimedia", href: "/admin/media", icon: "image" },
+  //   ],
+  // },
+  // {
+  //   title: "Sistema",
+  //   items: [
+  //     { label: "Configuración", href: "/admin/settings", icon: "gear" },
+  //     { label: "Administradores", href: "/admin/admins", icon: "users", superadmin: true },
+  //   ],
+  // },
 ];
 
 function Ico({ name, className }: { name: string; className?: string }) {

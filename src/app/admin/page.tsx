@@ -108,8 +108,8 @@ export default function AdminDashboard() {
             {[
               { label: "Nuevo producto", href: "/admin/products/new" },
               { label: "Administrar productos", href: "/admin/products" },
-              { label: "Editar contenido", href: "/admin/content" },
-              { label: "Administrar servicios", href: "/admin/services" },
+              { label: "Categorías", href: "/admin/categories" },
+              { label: "Marcas", href: "/admin/brands" },
             ].map((a) => (
               <Link key={a.href} href={a.href} className="rounded-lg border border-black/5 bg-[#f3f5f9] px-3.5 py-2.5 text-[13.5px] font-medium text-[var(--navy)] transition-colors hover:bg-[var(--muted)]">
                 {a.label}
