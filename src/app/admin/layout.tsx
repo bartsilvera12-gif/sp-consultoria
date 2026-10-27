@@ -32,7 +32,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const pathname = usePathname();
 
   // El login no lleva guardia (si no, bucle infinito).
-  if (pathname === "/admin/login") return <>{children}</>;
+  // Normalizamos la barra final porque trailingSlash:true sirve "/admin/login/".
+  if (pathname?.replace(/\/+$/, "") === "/admin/login") return <>{children}</>;
 
   return (
     <AdminAuthProvider>
