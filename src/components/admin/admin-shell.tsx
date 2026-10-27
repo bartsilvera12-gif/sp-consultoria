@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useAdminAuth } from "./admin-provider";
+import { AdminUIProvider } from "./ui";
 
 type NavItem = { label: string; href?: string; icon: string; superadmin?: boolean };
 type NavGroup = { title?: string; items: NavItem[] };
@@ -150,7 +151,9 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
       )}
 
       <main className="lg:pl-64">
-        <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">{children}</div>
+        <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+          <AdminUIProvider>{children}</AdminUIProvider>
+        </div>
       </main>
     </div>
   );

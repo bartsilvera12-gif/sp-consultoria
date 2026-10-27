@@ -78,7 +78,30 @@ Supabase → **Storage → New bucket**:
 - Nombre: `spconsultoriaweb-media`
 - **Public bucket:** sí (las imágenes de productos se muestran públicamente).
 
-Carpetas sugeridas: `products/`, `site/`, `services/`.
+Carpetas sugeridas: `products/`, `content/`, `brand/`, `media/`.
+
+### 5b. Permisos del bucket (para que el admin pueda subir/borrar)
+
+El bucket es **público** (lectura abierta), pero subir y borrar requiere estar
+autenticado. Ejecutar una sola vez en el SQL Editor:
+
+```sql
+-- Subir / actualizar / borrar archivos: solo usuarios autenticados (admins logueados).
+create policy "spconsultoriaweb media insert"
+  on storage.objects for insert to authenticated
+  with check (bucket_id = 'spconsultoriaweb-media');
+
+create policy "spconsultoriaweb media update"
+  on storage.objects for update to authenticated
+  using (bucket_id = 'spconsultoriaweb-media');
+
+create policy "spconsultoriaweb media delete"
+  on storage.objects for delete to authenticated
+  using (bucket_id = 'spconsultoriaweb-media');
+```
+
+> La lectura pública ya la cubre el bucket público; no hace falta política de `select`.
+> Si el bucket **no** fuera público, agregar además una policy de `select` para `anon`.
 
 ## 6. Correr el proyecto
 
