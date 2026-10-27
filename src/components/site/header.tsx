@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
-import { contact, type Lang } from "@/lib/content";
+import { type Lang } from "@/lib/content";
 import { useLang, useT } from "@/lib/i18n";
+import { useSiteData } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 function LangSwitch({
@@ -42,6 +43,7 @@ function LangSwitch({
 
 export function Header() {
   const { nav, cta, ui } = useT();
+  const { contact } = useSiteData();
   const { lang, setLang } = useLang();
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);

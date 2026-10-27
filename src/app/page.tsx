@@ -10,14 +10,15 @@ import { Footer } from "@/components/site/footer";
 import { Reveal } from "@/components/site/reveal";
 import { Eyebrow, Section, SectionHeading } from "@/components/site/primitives";
 import { Icon, CatIcon } from "@/components/site/icon";
-import { contact, productCatalog } from "@/lib/content";
 import { useT } from "@/lib/i18n";
+import { useSiteData } from "@/lib/site-data";
 
 export default function Home() {
   const t = useT();
+  const { contact, catalog } = useSiteData();
   const { hero, about, values, services, products, method, process, diff, mv, cta, ui } = t;
   const [activeCat, setActiveCat] = useState<string>("all");
-  const shownGroups = activeCat === "all" ? productCatalog : productCatalog.filter((g) => g.id === activeCat);
+  const shownGroups = activeCat === "all" ? catalog : catalog.filter((g) => g.id === activeCat);
   return (
     <>
       <Header />
@@ -302,7 +303,7 @@ export default function Home() {
           {/* Filtro por categoría */}
           <Reveal delay={80}>
             <div className="mt-10 flex flex-wrap gap-2.5">
-              {[{ id: "all", label: products.all }, ...productCatalog.map((g) => ({ id: g.id, label: products.categories[g.id] }))].map((c) => (
+              {[{ id: "all", label: products.all }, ...catalog.map((g) => ({ id: g.id, label: products.categories[g.id as keyof typeof products.categories] ?? g.id }))].map((c) => (
                 <button
                   key={c.id}
                   type="button"
@@ -328,7 +329,7 @@ export default function Home() {
                   <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-[var(--navy-2)]/8 text-navy">
                     <CatIcon name={g.icon} className="size-6" />
                   </span>
-                  <h3 className="text-lg font-bold uppercase tracking-wide text-navy">{products.categories[g.id]}</h3>
+                  <h3 className="text-lg font-bold uppercase tracking-wide text-navy">{products.categories[g.id as keyof typeof products.categories] ?? g.id}</h3>
                   <span className="ml-1 rounded-full bg-[var(--muted)] px-2.5 py-0.5 text-xs font-semibold text-muted-foreground">
                     {g.items.length}
                   </span>
@@ -343,7 +344,7 @@ export default function Home() {
                         {p.img ? (
                           // eslint-disable-next-line @next/next/no-img-element
                           <img
-                            src={`/productos/${p.img}`}
+                            src={p.img}
                             alt={p.name}
                             loading="lazy"
                             className="h-full w-full object-contain p-1.5"
@@ -357,9 +358,13 @@ export default function Home() {
                       </div>
                       <h4 className="line-clamp-2 h-[2.1rem] text-[11.5px] font-semibold leading-[1.05rem] text-navy">{p.name}</h4>
                       <div className="mt-2 flex items-center justify-between gap-2 border-t border-black/5 pt-2">
-                        <span className="text-[12.5px] font-bold text-navy">
-                          <span className="text-[9px] font-semibold text-muted-foreground">{products.currency}</span> {p.price}
-                        </span>
+                        {p.showPrice && p.price ? (
+                          <span className="text-[12.5px] font-bold text-navy">
+                            <span className="text-[9px] font-semibold text-muted-foreground">{products.currency}</span> {p.price}
+                          </span>
+                        ) : (
+                          <span className="text-[11px] font-semibold text-muted-foreground">{products.quote}</span>
+                        )}
                         <a
                           href={`${contact.wa}?text=${encodeURIComponent(`${products.waPrefix} ${p.name} (${p.brand})`)}`}
                           target="_blank"

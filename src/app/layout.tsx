@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/lib/i18n";
+import { SiteDataProvider } from "@/lib/site-data";
 
 const geistSans = Geist({
   variable: "--font-sans",
@@ -132,7 +133,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          <SiteDataProvider>{children}</SiteDataProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

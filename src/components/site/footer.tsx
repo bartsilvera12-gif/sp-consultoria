@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { contact } from "@/lib/content";
 import { useT } from "@/lib/i18n";
+import { useSiteData } from "@/lib/site-data";
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -24,6 +24,7 @@ function TikTokIcon({ className }: { className?: string }) {
 
 export function Footer() {
   const { nav, feature, ui } = useT();
+  const { contact } = useSiteData();
   const year = new Date().getFullYear();
   return (
     <footer className="relative mt-auto bg-[#0a1424] px-5 py-16 text-white sm:px-8">

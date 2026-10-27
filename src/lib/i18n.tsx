@@ -1,7 +1,8 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import { dict, type Lang } from "@/lib/content";
+import { type Lang } from "@/lib/content";
+import { useSiteData } from "@/lib/site-data";
 
 type Ctx = { lang: Lang; setLang: (l: Lang) => void };
 
@@ -41,5 +42,6 @@ export function useLang() {
 
 export function useT() {
   const { lang } = useLang();
+  const { dict } = useSiteData();
   return dict[lang];
 }
