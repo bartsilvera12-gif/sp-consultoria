@@ -13,6 +13,12 @@ import type { ProductCategory } from "@/lib/supabase/types";
 type Draft = Partial<ProductCategory>;
 const EMPTY: Draft = { key: "", name_es: "", name_en: "", icon: "", sort_order: 0, active: true };
 
+// La "clave" ya no se edita a mano: se genera desde el nombre.
+function slugify(s: string) {
+  return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 40);
+}
+
 export default function CategoriesPage() {
   const { userId } = useAdminAuth();
   const { toast, confirm } = useUI();
@@ -30,14 +36,16 @@ export default function CategoriesPage() {
   useEffect(() => { load(); }, [load]);
 
   async function save() {
-    if (!editing?.name_es?.trim() || !editing?.key?.trim()) {
-      toast("Completá la clave y el nombre en español.", "error");
+    if (!editing?.name_es?.trim()) {
+      toast("Completá el nombre en español.", "error");
       return;
     }
+    // Clave: si es nueva, se genera del nombre; si se edita, se conserva.
+    const key = (editing.key?.trim() || slugify(editing.name_es)) || `cat-${Date.now()}`;
     setSaving(true);
     try {
       const payload = {
-        key: editing.key!.trim(),
+        key,
         name_es: editing.name_es!.trim(),
         name_en: editing.name_en?.trim() || editing.name_es!.trim(),
         icon: editing.icon?.trim() || null,
@@ -96,7 +104,7 @@ export default function CategoriesPage() {
                     <span className="truncate text-[14px] font-semibold text-[var(--navy)]">{c.name_es}</span>
                     <Badge active={c.active} />
                   </div>
-                  <div className="text-[12px] text-muted-foreground">{c.name_en} · <code>{c.key}</code></div>
+                  <div className="text-[12px] text-muted-foreground">{c.name_en}</div>
                 </div>
                 <div className="flex shrink-0 items-center gap-1">
                   <Btn variant="ghost" size="sm" icon="edit" onClick={() => setEditing(c)}>Editar</Btn>
@@ -111,19 +119,13 @@ export default function CategoriesPage() {
       <Modal open={!!editing} onClose={() => setEditing(null)} title={editing?.id ? "Editar categoría" : "Nueva categoría"}>
         {editing && (
           <div className="space-y-4">
-            <Field label="Clave" hint="única, sin espacios" help="Identificador interno, ej: camaras, alarmas.">
-              <TextInput value={editing.key ?? ""} onChange={(e) => setEditing({ ...editing, key: e.target.value })} placeholder="camaras" />
-            </Field>
             <Field label="Nombre" lang="ES">
               <TextInput value={editing.name_es ?? ""} onChange={(e) => setEditing({ ...editing, name_es: e.target.value })} placeholder="Cámaras de seguridad" />
             </Field>
             <Field label="Nombre" lang="EN">
               <TextInput value={editing.name_en ?? ""} onChange={(e) => setEditing({ ...editing, name_en: e.target.value })} placeholder="Security cameras" />
             </Field>
-            <div className="grid grid-cols-2 gap-4">
-              <Field label="Ícono" hint="opcional"><TextInput value={editing.icon ?? ""} onChange={(e) => setEditing({ ...editing, icon: e.target.value })} placeholder="camera" /></Field>
-              <Field label="Orden"><TextInput type="number" value={editing.sort_order ?? 0} onChange={(e) => setEditing({ ...editing, sort_order: Number(e.target.value) })} /></Field>
-            </div>
+            <Field label="Orden"><TextInput type="number" value={editing.sort_order ?? 0} onChange={(e) => setEditing({ ...editing, sort_order: Number(e.target.value) })} /></Field>
             <Toggle checked={editing.active ?? true} onChange={(v) => setEditing({ ...editing, active: v })} label="Visible en el sitio" />
             <div className="flex justify-end gap-2.5 pt-1">
               <Btn variant="secondary" onClick={() => setEditing(null)}>Cancelar</Btn>

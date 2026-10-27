@@ -7,10 +7,10 @@ import { logAudit } from "@/lib/supabase/auth";
 import { useAdminAuth } from "@/components/admin/admin-provider";
 import {
   PageHeader, Card, Btn, Field, TextInput, TextArea, Select, Toggle,
-  Loading, ErrorState, Icon, useUI,
+  Loading, ErrorState, useUI,
 } from "@/components/admin/ui";
 import { ImageField } from "@/components/admin/image-field";
-import type { Product, ProductCost, ProductCategory, ProductBrand } from "@/lib/supabase/types";
+import type { Product, ProductCategory, ProductBrand } from "@/lib/supabase/types";
 
 function slugify(s: string) {
   return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")
@@ -18,7 +18,6 @@ function slugify(s: string) {
 }
 
 type PDraft = Partial<Product>;
-type CDraft = Partial<ProductCost>;
 
 export function ProductForm({ productId }: { productId?: string }) {
   const router = useRouter();
@@ -37,7 +36,6 @@ export function ProductForm({ productId }: { productId?: string }) {
     model: "", image_url: "", category_id: null, brand_id: null,
     sale_price: null, show_price: false, currency: "PYG", featured: false, active: true, sort_order: 0,
   });
-  const [cost, setCost] = useState<CDraft>({ supplier_name: "", supplier_cost: null, currency: "PYG", source_document: "", notes: "" });
 
   useEffect(() => {
     (async () => {
@@ -55,8 +53,6 @@ export function ProductForm({ productId }: { productId?: string }) {
           if (e1) throw e1;
           setP(prod as Product);
           setSlugTouched(true);
-          const { data: c } = await db().from("product_costs").select("*").eq("product_id", productId).maybeSingle();
-          if (c) setCost(c as ProductCost);
         }
       } catch {
         setErr(true);
@@ -105,23 +101,6 @@ export function ProductForm({ productId }: { productId?: string }) {
         id = (data as { id: string }).id;
       }
 
-      // Costo de proveedor (privado). Upsert manual por product_id.
-      const hasCost = (cost.supplier_cost !== null && cost.supplier_cost !== undefined && (cost.supplier_cost as unknown as string) !== "") || cost.supplier_name?.trim() || cost.notes?.trim();
-      if (hasCost) {
-        const cPayload = {
-          product_id: id,
-          supplier_name: cost.supplier_name?.trim() || null,
-          supplier_cost: cost.supplier_cost === null || cost.supplier_cost === undefined || (cost.supplier_cost as unknown as string) === "" ? null : Number(cost.supplier_cost),
-          currency: cost.currency || "PYG",
-          source_document: cost.source_document?.trim() || null,
-          notes: cost.notes?.trim() || null,
-          updated_by: userId,
-        };
-        const { data: existing } = await db().from("product_costs").select("id").eq("product_id", id).maybeSingle();
-        if (existing) await db().from("product_costs").update(cPayload).eq("id", (existing as { id: string }).id);
-        else await db().from("product_costs").insert(cPayload);
-      }
-
       await logAudit(userId!, productId ? "update" : "create", "product", id);
       toast(productId ? "Producto actualizado." : "Producto creado.");
       router.push("/admin/products");
@@ -158,29 +137,6 @@ export function ProductForm({ productId }: { productId?: string }) {
               <TextArea value={p.description_en ?? ""} onChange={(e) => setP({ ...p, description_en: e.target.value })} />
             </Field>
             <ImageField value={p.image_url ?? null} onChange={(url) => setP({ ...p, image_url: url })} />
-          </Card>
-
-          {/* Costo de proveedor (privado) */}
-          <Card className="space-y-4 border-amber-200 bg-amber-50/40">
-            <div className="flex items-center gap-2 text-amber-800">
-              <Icon name="warn" className="size-5 shrink-0" />
-              <div>
-                <h3 className="text-sm font-bold">Costo de proveedor</h3>
-                <p className="text-[12px]">Uso interno — <strong>no se muestra al público</strong>. Protegido a nivel de base de datos.</p>
-              </div>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <Field label="Proveedor"><TextInput value={cost.supplier_name ?? ""} onChange={(e) => setCost({ ...cost, supplier_name: e.target.value })} placeholder="Electropar" /></Field>
-              <Field label="Costo (número)">
-                <TextInput type="number" value={cost.supplier_cost ?? ""} onChange={(e) => setCost({ ...cost, supplier_cost: e.target.value === "" ? null : Number(e.target.value) })} placeholder="0" />
-              </Field>
-              <Field label="Moneda">
-                <Select value={cost.currency ?? "PYG"} onChange={(e) => setCost({ ...cost, currency: e.target.value })}>
-                  <option value="PYG">Guaraníes (PYG)</option><option value="USD">Dólares (USD)</option>
-                </Select>
-              </Field>
-              <Field label="Documento origen"><TextInput value={cost.source_document ?? ""} onChange={(e) => setCost({ ...cost, source_document: e.target.value })} placeholder="Cotización N° …" /></Field>
-            </div>
           </Card>
         </div>
 
