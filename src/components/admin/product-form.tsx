@@ -181,7 +181,6 @@ export function ProductForm({ productId }: { productId?: string }) {
               </Field>
               <Field label="Documento origen"><TextInput value={cost.source_document ?? ""} onChange={(e) => setCost({ ...cost, source_document: e.target.value })} placeholder="Cotización N° …" /></Field>
             </div>
-            <Field label="Notas internas"><TextArea value={cost.notes ?? ""} onChange={(e) => setCost({ ...cost, notes: e.target.value })} /></Field>
           </Card>
         </div>
 
@@ -225,7 +224,6 @@ export function ProductForm({ productId }: { productId?: string }) {
 
           <Card className="space-y-3">
             <Toggle checked={p.active ?? true} onChange={(v) => setP({ ...p, active: v })} label="Activo" description="Visible en el sitio." />
-            <Toggle checked={p.featured ?? false} onChange={(v) => setP({ ...p, featured: v })} label="Destacado" />
           </Card>
         </div>
       </div>
