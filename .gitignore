@@ -46,3 +46,6 @@ sp-consultoria-hostinger.zip
 # NOTA: /dist/ se versiona a proposito: GitHub Actions compila y commitea
 # la carpeta dist/ (sitio listo para subir a Hostinger). No la ignoramos.
 # La carpeta out/ (export intermedio de Next) si se ignora, arriba.
+
+# permitir el ejemplo de entorno
+!.env.example
